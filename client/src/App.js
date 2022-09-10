@@ -1,20 +1,19 @@
 
 import './styles/App.css';
+import { useState } from 'react';
 import Navbar from './components/Navbar'
-import Hero from './components/Hero';
-import HomeItemDisplay from './components/HomeItemDisplay';
-import SuggestedProductsHome from './components/SuggestedProductsHome';
-import SustainabilityStatement from './components/SustainabiltyStatement';
+import Home from './components/Home';
+import Authform from './components/AuthForm';
 import Footer from './components/Footer';
 function App() {
+  const [isLoginPop, setIsLoginPop] = useState(true)
   return (
     <div className="App">
-      <Navbar/>
-      <Hero/>
-      <HomeItemDisplay/>
-      <SuggestedProductsHome/>
-      <SustainabilityStatement/>
+      <Navbar setIsLoginPop={setIsLoginPop}/>
+      {isLoginPop&& <Authform setIsLoginPop={setIsLoginPop} />}
+      <Home/>
       <Footer/>
+
     </div>
   );
 }
