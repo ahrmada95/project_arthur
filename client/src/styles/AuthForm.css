@@ -12,11 +12,10 @@
 }
 
 #auth-form{
-    width: 30vw;
+    width: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black;
     min-height: 80vh;
     border-radius: 10px;
     left: 25%;
@@ -24,8 +23,12 @@
     background-color: white;
 }
 
+@media (max-width: 800px) {
+  
+}
+
 #auth-form h1 {
-    font-size: 3vw;
+    font-size: 3em;
 }
 
 #auth-form button{

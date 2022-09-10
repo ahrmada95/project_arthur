@@ -9,7 +9,6 @@ return (
         <h1>Suggested products</h1>
         <div id='suggested-products-container'>
            <ProductCard product={{img: './example-product.jpeg', title: 'I will build you an amazing custom keyboard', price: '$100'}}/>
-           <ProductCard product={{img: './pika-demo.jpeg', title: 'I will grade and package your pokemon cards', price: '$50'}}/>
            <ProductCard product={{img: './example-web.webp', title: 'I will build you a customer wordpress website', price: '$200'}}/>
            <ProductCard product={{img: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/264169987/original/3f6f79de873f7fc0ee77337471a87e3752c3a3c5/do-a-marketing-strategy-to-increase-your-instagram-followers.png', title: 'I will build your social media presence', price: '$6000'}}/>
           
