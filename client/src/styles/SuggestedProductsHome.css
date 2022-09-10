@@ -1,0 +1,41 @@
+#suggested-products-home {
+display: flex;
+align-items: center;
+margin-top: 10em;
+flex-direction: column;
+min-height: 80vh;
+}
+
+#suggested-products-container {
+    display: flex;
+    gap: 3%;
+    margin-top: 3em;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+#product-card-img{
+max-width:350px;
+aspect-ratio: 4/3;
+}
+
+.hover {
+    color: #FF5F3D;
+}
+
+.product-card {
+    margin-bottom: 2em;
+    overflow: none;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    transition: 300ms;
+}
+
+.product-card p{
+width: 80%;
+}
