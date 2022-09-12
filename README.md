@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 
 * Added Faker: gem install faker
+* source pictures: https://unsplash.com/s/photos/pair-programming

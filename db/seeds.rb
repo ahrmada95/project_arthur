@@ -22,13 +22,38 @@ client5 = Client.create!(user_id: User.all.sample.id)
 end
 
 
-20.times do
-    Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: ????????????????? , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: ????????? )
-end
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/arthur-franklin-EIuqUQddc3Q-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/campaign-creators-yktK2qaiVHI-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/chris-ried-ieic5Tq8YMk-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/christin-hume-Hcfwew744z4-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/clement-helardot-95YRwf6CNw8-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/daniel-mccullough-80VTQEkRh1c-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/daniele-franchi-GbAEJUJKJ88-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/daniele-franchi-VP5R-n47v9Q-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/diego-ph-fIq0tET6llw-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/emile-perron-xrVDYZRGdw4-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/faisal-BI465ksrlWs-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/firmbee-com-gcsNOsPEXfs-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/firmbee-com-gcsNOsPEXfs-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/headway-5QgIuuBxKwM-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/hitesh-choudhary-D9Zow2REm8U-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/jason-goodman-Oalh2MojUuk-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/jeshoots-com-pUAM5hPaCRI-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/john-schnobrich-FlPc9_VocJ4-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/jordan-whitfield-sm3Ub_IJKQg-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/mailchimp-04X1Yp9hNH8-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/markus-winkler-IrRbSND5EUc-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/marvin-meyer-SYTO3xs06fU-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/merakist-CNbRsQj8mHQ-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/michal-czyz-ALM7RNZuDH8-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/mika-baumeister-Wpnoqo2plFA-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/client/pictures/path-digital-tR0jvlsmCuQ-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/scott-graham-OQMZwNd3ThU-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/startae-team-QEsaXprgVfQ-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/client/pictures/van-tay-media-TFFn3BYLc5s-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/markus-winkler-IrRbSND5EUc-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/marvin-meyer-SYTO3xs06fU-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
 
-20.times do
-    Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: ????????????????? , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: ????????? )
-end
 
 
 50.times do
