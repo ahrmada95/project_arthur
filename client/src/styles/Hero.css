@@ -1,0 +1,87 @@
+#hero{
+
+}
+
+#hero-container{
+position: relative;
+display: flex;
+gap: 2%;
+justify-content: center;
+}
+
+#hero-img-1{
+height: 30vw;
+aspect-ratio: 16/9;
+filter: contrast(0.7);
+}
+
+#hero-img-container{    
+position: relative;
+}
+
+#hero-img-container h2{
+font-size: 3vw;
+max-width: 500px;
+position: absolute;
+top: 10%;
+left: 10%;
+}
+
+#hero-img-container button {
+font-size: 2vw;
+padding: 10px;
+border: none;
+background-color: #FF5F3D;
+color: white;
+position: absolute;
+top: 70%;
+left: 10%;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+#hero-img-2 {
+    aspect-ratio: 1/1;
+    height: 30vw;
+}
+
+#hero-img-container2{
+position: relative;
+}
+
+#hero-img-container2 h2{
+font-size: 2.5vw;
+max-width: 500px;
+position: absolute;
+top: 30%;
+left: 12%;
+color: white;
+}
+
+
+#hero-img-container2 button {
+font-size: 1.5vw;
+padding: 10px;
+border: none;
+background-color: #FF5F3D;
+color: white;
+position: absolute;
+top: 60%;
+left: 35%;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+#hero-img-container2 button:hover {
+transform: scale(1.1);
+transition: 300ms;
+cursor: pointer;
+}
+
+#hero-img-container button:hover {
+transform: scale(1.1);
+transition: 300ms;
+cursor: pointer;
+}

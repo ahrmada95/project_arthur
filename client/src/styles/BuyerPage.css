@@ -1,0 +1,143 @@
+#buyer-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+#buyer-welcome{
+    font-size: 1.3vw;
+}
+
+#buyer-in-the-works{
+width: 70%;
+margin-bottom: 2em;
+}
+
+.buyer-card{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.491);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.buyer-card-info{
+    margin-right: auto;
+}
+
+.buyer-card-info p {
+    max-width: 500px;
+}
+
+.buyer-card-status button{
+    height: 40px;
+    font-size: 1.2em;
+    margin-right: 10px;
+    background-color: #FF5F3D ;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+}
+
+#buyer-approve{
+    width: 70%;
+    margin-bottom: 2em;
+}
+
+.buyer-approve-card{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.491);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.buyer-approve-card-info{
+    margin-right: auto;
+    max-width: 500px;
+}
+
+.buyer-approve-card-status button{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    height: 40px;
+    background-color: white ;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+    border-radius: 10px;
+    color: #FF5F3D;
+    font-weight: 500;
+}
+
+.buyer-approve-card-status button:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+#buyer-confirm-fullscreen{
+    position: fixed;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.699);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#buyer-confirm-window{
+text-align: center;
+margin-top: 5em;
+background-color: white;
+height: 65%;
+width: 55%;
+border-radius: 10px;
+padding: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#buyer-confirm-window h2{
+    font-size: 2.2vw;
+}
+
+#buyer-confirm-window p {
+font-size: 1.2em;
+margin-bottom: 4em;
+}
+
+
+#buyer-confirm-btns button {
+    margin-right: 10px;
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 5px;
+    padding:5px 10px;
+ 
+}
+
+#buyer-confirm-confirm-btn{
+    background-color: #4cd137;
+    color: white;
+}
+
+#buyer-confirm-deny-btn{
+    background-color: #EA2027;
+    color:white;
+    
+}
+
+#confirm-textarea{
+    width: 65%;
+    height: 40%;
+}
