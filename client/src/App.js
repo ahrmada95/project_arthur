@@ -20,8 +20,8 @@ const App = () => {
       {isLoginPop&& <Authform setIsLoginPop={setIsLoginPop} />}
       <Router>
         <Routes>
-        <Route exact path ='/' element={<Home/>}/>
-        <Route exact path ='/profile/seller' element={<SellerPage/>}/>
+        <Route exact key={1} path ='/' element={<Home/>}/>
+        <Route exact key={2}  path='/profile/seller' element={<SellerPage/>}/>
         </Routes>
       </Router>
       <Footer/>

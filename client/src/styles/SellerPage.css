@@ -1,0 +1,74 @@
+#seller-page {
+min-height: 80vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#seller-welcome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seller-container{
+    margin-bottom: 10em;
+}
+
+.seller-req{
+    margin-bottom: 4em;
+}
+
+.seller-req-card{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.367);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.seller-req-card-info p{
+    max-width: 550px;
+}
+
+.seller-req-card-info {
+    margin-right: auto;
+}
+
+.seller-req-card-status button{
+    margin: 0 10px;
+    border-radius: 30px;
+    border: none;
+    padding: 5px 15px;
+    font-size: 1.3em;
+}
+
+.seller-req-card-status-accept{
+    background-color: #FF5F3D;
+    color: white;
+}
+
+.seller-req-card-status-decline{
+
+}
+
+#seller-in-prog{}
+
+.seller-prog-card{}
+
+.hover:hover {
+transform: scale(1.1);
+transition: 300ms;
+cursor: pointer;
+}
+
+.seller-complete{
+    margin: 0 10px;
+    border-radius: 30px;
+    border: none;
+    padding: 5px 15px;
+    font-size: 1.3em;
+    background-color: #FF5F3D;
+    color: white;
+}
