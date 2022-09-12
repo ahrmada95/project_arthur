@@ -1,0 +1,46 @@
+/* 01244F */
+
+#sustainability{
+display: flex;
+}
+
+#sus-img {
+width: 50%;
+}
+
+#left-sus-container{
+    width: 50%;
+    background-color: #01244F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sus-internal-container{
+    background-color: white;
+    width: 70%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#sus-internal-container h1 {
+    font-size: 3vw;
+    color: #FF5F3D;
+}
+
+#sus-internal-container p {
+    max-width: 80%;
+    font-size: 1.6vw;
+    text-align: center;
+}
+
+#sus-internal-container a {
+    font-size: 1.4vw;
+    color: black;
+}
+
+
+
+
