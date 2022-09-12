@@ -1,0 +1,38 @@
+class ClientsController < ApplicationController
+    skip_before_action :verify_authenticity_token
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+
+    def index
+        render json: Client.all
+    end
+
+    def show
+        client = Client.find_by(params[:id])
+        render json: client
+    end
+
+    def create
+        client = Client.create!(permitted_params)
+        render json: client
+    end
+
+    def destroy
+       client = Client.find_by(params[:id])
+       client.destroyhead :no_content 
+    end
+
+    private
+
+    def permitted_params
+        params.permit(:user_id)
+    end
+    def render_not_found_response
+        render json: { error: "Client not found" }, status: :not_found
+    end
+
+    def render_unprocessable_entity_response(exception)
+        render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
+end
