@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_191019) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  # done
   create_table "clients", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -26,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_191019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  # done
   create_table "listings", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -38,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_191019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  # done
   create_table "reviews", force: :cascade do |t|
     t.integer "seller_id"
     t.integer "client_id"
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_191019) do
     t.datetime "updated_at", null: false
   end
 
+  # done
   create_table "sellers", force: :cascade do |t|
     t.integer "user_id"
     t.integer "rating"
@@ -54,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_191019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+# done
   create_table "transactions", force: :cascade do |t|
     t.integer "listing_id"
     t.integer "seller_id"
@@ -63,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_191019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
+  # done
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
