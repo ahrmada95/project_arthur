@@ -24,7 +24,7 @@ client5 = Client.create!(user_id: User.all.sample.id)
 
 # what is seller raiting 
 20.times do
-    Seller.create!(user_id: User.all.sample.id, raiting:???????, bio: Faker::Lorem.paragraph_by_chars)
+    Seller.create!(user_id: User.all.sample.id, rating: 0, bio: Faker::Lorem.paragraph_by_chars)
 end
 
 
