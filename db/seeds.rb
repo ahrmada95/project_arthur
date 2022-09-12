@@ -9,12 +9,6 @@ tags = ['exciting', 'knowledgeable', 'exotic', 'crazy', 'cheap', 'precious', 'gl
 ', 'entertaining', 'different', 'graceful', 'instinctive']
 
 
-
-
-
-
-
-
 puts "📃 Seeding data..."
 
 25.times do
