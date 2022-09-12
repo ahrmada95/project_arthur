@@ -1,6 +1,9 @@
 import '../styles/ListingPage.css'
-
+import { useState } from 'react'
+import ConfirmTransaction from './ConfirmTransaction'
 const ListingPage = () => {
+    const [isConfirming, setIsConfirming] = useState(true)
+    const isPurchase = true
 return(
     <div id="listing-page">
         <div id='listing-top-wrapper'>
@@ -16,7 +19,7 @@ return(
                 <li><ion-icon id='listing-checkmark' name="checkmark-outline"></ion-icon>24 hour support</li>
                 <li><ion-icon id='listing-checkmark' name="checkmark-outline"></ion-icon>Satisfaction Gurarantee</li>
                 </ul>
-                <button>Buy now</button>
+                <button onClick={()=> {setIsConfirming(true)}}>Buy now</button>
             </div>
         </div>
         </div>
@@ -36,7 +39,7 @@ return(
                 <p>{'I am a web developer that would love to work with you on your next project.  I have over 150 years of expirence working in the web industry and know that we could make something great together.'}</p>
             </div>
         </div>
-
+        {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase}/> }
     </div>
 )
 }

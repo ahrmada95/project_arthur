@@ -136,3 +136,8 @@ margin-bottom: 4em;
     color:white;
     
 }
+
+#confirm-textarea{
+    width: 65%;
+    height: 40%;
+}
