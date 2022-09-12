@@ -8,6 +8,7 @@ import {createContext, useState, useMemo} from 'react'
 import SellerPage from './components/SellerPage';
 import BuyerPage from './components/BuyerPage';
 import ListingPage from './components/ListingPage';
+import SearchPage from './components/SearchPage';
 export const UserContext = createContext();
 
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact key={2}  path='/seller' element={<SellerPage/>}/>
         <Route exact key={3}  path='/buyer' element={<BuyerPage/>}/>
         <Route exact key={4}  path='/listing' element={<ListingPage/>}/>
+        <Route exact key={5}  path='/search' element={<SearchPage/>}/>
         </Routes>
       </Router>
       <Footer/>

@@ -2,7 +2,7 @@ import '../styles/ListingPage.css'
 import { useState } from 'react'
 import ConfirmTransaction from './ConfirmTransaction'
 const ListingPage = () => {
-    const [isConfirming, setIsConfirming] = useState(true)
+    const [isConfirming, setIsConfirming] = useState(false)
     const isPurchase = true
 return(
     <div id="listing-page">
