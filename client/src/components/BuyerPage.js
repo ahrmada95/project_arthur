@@ -1,35 +1,40 @@
 import { UserContext } from "../App"
 import { useState, useEffect, useContext } from "react"
+import BuyerCard from "./BuyerCard"
+import ConfirmTransaction from "./ConfirmTransaction"
 import '../styles/BuyerPage.css'
 
 const BuyerPage = () => {
+    const [isConfirming, setIsConfirming] = useState(false)
+    const {globalUser, setGloblUser} = useContext(UserContext)
+    const [inProgressCards, setInProgreesCards] = useState([{status: 'in-progress', title: 'This is a title', description:'This is a description of the the thing that was submitted to be done' }])
+    const [completedCards, setCompletedCards] = useState([{status: 'completed', title: 'This is a title', description:'This is a description of the the thing that was submitted to be done' }])
 return (
     <div id='buyer-page'>
         <div id="buyer-welcome">
-            <h1>Welcome, buyer</h1>
+            <h1>Welcome, {globalUser?.first_name}</h1>
         </div>
         <div id="buyer-in-the-works">
-            <div className="buyer-card">
-                <div className="buyer-card-info">
-                <h3>Title</h3>
-                <p>This is the description of the task that was asinged to the seler</p>
-                </div>
-                <div className="buyer-card-status">
-                    <button>In-progress</button>
-                </div>
-            </div>
+            <h2>In progress:</h2>
+            {inProgressCards.map(card => {
+                return(
+                    <BuyerCard cardType={card.status} title={card.title} description={card.description} />
+                )
+            })}
         </div>
         <div id='buyer-approve'>
-            <div className="buyer-approve-card">
-                <div className="buyer-approve-card-info">
-                    <h3>Title</h3>
-                    <p>This is the description of the project tot be approved</p>
-                </div>
-            </div>
-            <div className="buyer-approve-card-status">
-                <button>Continue to approval <ion-icon name="arrow-forward-outline"></ion-icon></button>
-            </div>
+            <h2>Ready for approval</h2>
+            {completedCards.map(card => {
+                return(
+                    <BuyerCard cardType={card.status} title={card.title} description={card.description} setIsConfirming={setIsConfirming} />
+                )
+            })}
         </div>
+
+        <div id='buyer-sugested-products'>
+
+        </div>
+       {isConfirming&& <ConfirmTransaction setIsConfirming={setIsConfirming}/>}
     </div>
 )
 }

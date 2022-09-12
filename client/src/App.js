@@ -11,7 +11,7 @@ export const UserContext = createContext();
 
 
 const App = () => {
-  const [globalUser, setGlobalUser] = useState()
+  const [globalUser, setGlobalUser] = useState({first_name: 'Anya'})
   const value = useMemo(() => ({ globalUser, setGlobalUser }), [globalUser, setGlobalUser]);
   const [isLoginPop, setIsLoginPop] = useState(false)
   return (
