@@ -8,7 +8,7 @@
 puts "📃 Seeding data..."
 
 25.times do
-    User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password_digest: ???????????? )
+    User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password_digest: Faker::Internet.password )
 end
 
 client1 = Client.create!(user_id: User.all.sample.id)
@@ -17,12 +17,14 @@ client3 = Client.create!(user_id: User.all.sample.id)
 client4 = Client.create!(user_id: User.all.sample.id)
 client5 = Client.create!(user_id: User.all.sample.id)
 
+
+# what is seller raiting 
 20.times do
     Seller.create!(user_id: User.all.sample.id, raiting:???????, bio: Faker::Lorem.paragraph_by_chars)
 end
 
 
-Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/arthur-franklin-EIuqUQddc3Q-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
+Listing.create!(name: ?????? , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/arthur-franklin-EIuqUQddc3Q-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
 Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/campaign-creators-yktK2qaiVHI-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
 Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/chris-ried-ieic5Tq8YMk-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
 Listing.create!(name: , description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../client/pictures/christin-hume-Hcfwew744z4-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: [] )
