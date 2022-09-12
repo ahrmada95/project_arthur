@@ -1,11 +1,14 @@
 import '../styles/Navbar.css'
 import { useContext, useState } from 'react'
 import { UserContext } from '../App'
+import { NavLink } from 'react-router-dom'
 const Navbar = ({setIsLoginPop}) => {
    const {globalUser, setGlobalUser} = useContext(UserContext)
 return (
    <nav id='nav'>
+   <a href='/'>
     <img  id='logo' src='./logov2.png'/>
+    </a>
     <form id='navbar-search-form'>
     <input type='text' id='seach-input-field' placeholder='Search anything...'/>
     <button id='search-btn' ><ion-icon name="search-outline"></ion-icon></button>
