@@ -7,11 +7,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {createContext, useState, useMemo} from 'react'
 import SellerPage from './components/SellerPage';
 import BuyerPage from './components/BuyerPage';
+import ListingPage from './components/ListingPage';
 export const UserContext = createContext();
 
 
 const App = () => {
-  const [globalUser, setGlobalUser] = useState({first_name: 'Anya'})
+  const [globalUser, setGlobalUser] = useState()
   const value = useMemo(() => ({ globalUser, setGlobalUser }), [globalUser, setGlobalUser]);
   const [isLoginPop, setIsLoginPop] = useState(false)
   return (
@@ -22,8 +23,9 @@ const App = () => {
       <Router>
         <Routes>
         <Route exact key={1} path ='/' element={<Home/>}/>
-        <Route exact key={2}  path='/profile/seller' element={<SellerPage/>}/>
-        <Route exact key={3}  path='/profile/buyer' element={<BuyerPage/>}/>
+        <Route exact key={2}  path='/seller' element={<SellerPage/>}/>
+        <Route exact key={3}  path='/buyer' element={<BuyerPage/>}/>
+        <Route exact key={4}  path='/listing' element={<ListingPage/>}/>
         </Routes>
       </Router>
       <Footer/>
