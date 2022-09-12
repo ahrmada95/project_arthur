@@ -23,6 +23,7 @@ overflow: none;
 
 #listing-img-container img {
 width: 100%;
+height:100%;
 border-bottom-left-radius: 10px;
 border-top-left-radius: 10px;
 }
@@ -39,9 +40,6 @@ border-bottom-right-radius: 10px;
 border-top-right-radius: 10px;
 }
 
-#listing-pricing-info h2{
-
-}
 
 #listing-pricing-info ul{
     list-style: none;
