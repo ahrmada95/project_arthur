@@ -27,4 +27,9 @@ class TransactionsController < ApplicationController
             render json: {error: 'Transaction not found'}, status: 404
         end
     end
+
+    private 
+        def transaction_params 
+            params.permit(:listing_id, :seller_id, :client_id, :status)
+        end
 end

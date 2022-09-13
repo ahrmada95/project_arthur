@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     end
 
     def create 
-        new_user = User.create(User_params)
+        new_user = User.create(user_params)
         if new_user.valid?
             render json: new_user, status: :created
         else  
@@ -27,4 +27,9 @@ class UsersController < ApplicationController
             render json: {error: 'User not found'}, status: 404
         end
     end
+
+    private 
+        def user_params 
+            params.permit(:first_name, :last_name, :email, :password)
+        end
 end

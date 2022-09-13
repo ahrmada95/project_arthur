@@ -27,4 +27,10 @@ class SellersController < ApplicationController
             render json: {error: 'Seller not found'}, status: 404
         end
     end
+
+   private
+
+    def seller_params 
+        params.permit(:seller_id, :user_id, :rating, :bio)
+    end
 end

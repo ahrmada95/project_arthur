@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/listings/:id', to: 'listings#show'
   post '/listings', to: 'listings#create'
   delete '/listings/:id', to: 'listings#destroy'
-  patch '/listings/:id', to: 'listing#update'
+  patch '/listings/:id', to: 'listings#update'
 
   get '/reviews', to: 'reviews#index'
   get '/reviews/:id', to: 'reviews#show'
