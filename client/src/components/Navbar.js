@@ -7,7 +7,7 @@ const Navbar = ({setIsLoginPop}) => {
 return (
    <nav id='nav'>
    <a href='/'>
-    <img  id='logo' src='./logov2.png'/>
+    <img  id='logo' src='../logov2.png'/>
     </a>
     <form id='navbar-search-form'>
     <input type='text' id='seach-input-field' placeholder='Search anything...'/>
