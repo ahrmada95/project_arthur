@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
     def show
         listing = find_listing
         if listing
-        render json: listing
+        render json: listing.to_json(methods: [:seller])
         else 
             render json:{error: 'Listing not Found'}, status: :not_found
         end

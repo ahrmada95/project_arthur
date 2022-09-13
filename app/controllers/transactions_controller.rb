@@ -6,7 +6,16 @@ class TransactionsController < ApplicationController
     end
 
     def show
-        render json: Transaction.find_by(id: params[:id])
+        transaction = Transaction.find_by(id: params[:id])
+        puts transaction
+        # listing = Listing.find_by(id: transaction.listing_id)
+        render json: transaction
+    end
+
+    def find_by_user
+        in_progress_transactions = Transaction.where(client_id: params[:id], status: 'in_progress')
+        completed_transactions = Transaction.where(client_id: params[:id], status: 'complete')
+        render json:{ in_progress: in_progress_transactions.as_json(methods: [:listing]), completed: completed_transactions.as_json(methods: [:listing])}
     end
 
     def create 
