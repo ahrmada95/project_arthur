@@ -2,9 +2,9 @@
 
 const BuyerCard = ({cardType, title, description, setIsConfirming}) => {
 
-
+console.log(cardType, title, description, setIsConfirming)
 const cardToShow = () => {
-    if (cardType == 'in-progress'){
+    if (cardType == 'in_progress'){
         return(
             <div className="buyer-card">
             <div className="buyer-card-info">
