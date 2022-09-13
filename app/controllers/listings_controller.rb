@@ -10,11 +10,15 @@ class ListingsController < ApplicationController
         # @listing = Listing.where("lower(name) LIKE :search OR lower(description) LIKE :search ", search: "%#{params[:key.downcase]}%")
         listings = []
         param = params[:key].downcase 
-        Listing.all.each do |list|
+        if param == "all"
+            listings = Listing.all
+        else
+            Listing.all.each do |list|
             if list[:name].downcase.include?(param) || list[:description].downcase.include?(param) || list[:tags].include?(param)
                listings << list
             end
         end
+        end 
         render json: listings
     end
 
