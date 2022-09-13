@@ -7,8 +7,6 @@ class TransactionsController < ApplicationController
 
     def show
         transaction = Transaction.find_by(id: params[:id])
-        puts transaction
-        # listing = Listing.find_by(id: transaction.listing_id)
         render json: transaction
     end
 
