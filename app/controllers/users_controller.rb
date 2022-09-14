@@ -39,6 +39,20 @@ class UsersController < ApplicationController
         end
     end
 
+
+    def make_seller 
+        token = params[:user_id]
+        hmac_secret = 'my$ecretK3y'
+        decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+        this_user = User.find_by(id: decoded_token[0]["data"])
+        if this_user 
+            seller = Seller.create(user_id: this_user.id, bio: params[:bio], rating: 0)
+            render json: {message: 'success'}, status: 204
+        else 
+            render json: {error: "Invalid login"}, status: 418
+        end
+    end
+
     private 
         def user_params 
             params.permit(:first_name, :last_name, :email, :password)

@@ -30,6 +30,20 @@ class ListingsController < ApplicationController
         end
     end
 
+    def get_listing_by_user
+        token = params[:user_id]
+        hmac_secret = 'my$ecretK3y'
+        decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+        this_user = User.find_by(id: decoded_token[0]["data"])
+        if this_user
+            transactions = Transaction.where(seller_id: this_user.id)
+            render json: transactions.to_json(methods: [:listing])
+        else
+            render json: {error: 'User not found'}
+        end
+
+    end
+
     def create
     listing = Listing.create!(listing_params)
     if listing.valid?
