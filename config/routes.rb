@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post '/listings', to: 'listings#create'
   delete '/listings/:id', to: 'listings#destroy'
   patch '/listings/:id', to: 'listings#update'
+  get '/search', to: 'listings#search'
 
   get '/reviews', to: 'reviews#index'
   get '/reviews/:id', to: 'reviews#show'
@@ -48,6 +49,10 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
   # patch '/users/:id', to: 'users#update'
 
+  get '/login', to: "users#check_login"
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
+  
 
 
 end

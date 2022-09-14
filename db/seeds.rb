@@ -22,6 +22,8 @@ puts "📃 Seeding data..."
     User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: Faker::Internet.password )
 end
 
+User.create(first_name: "Ahnaf", last_name: "Ahmad", email: "ahnaf@arthur.com", password: "password")
+
 client1 = Client.create!(user_id: User.all.sample.id)
 client2 = Client.create!(user_id: User.all.sample.id)
 client3 = Client.create!(user_id: User.all.sample.id)
@@ -77,7 +79,7 @@ end
 # Seller can have few transation
 # Client can have few transation
 50.times do
-    Transaction.create!(listing_id: Listing.all.sample.id, seller_id: Seller.all.sample.id, client_id: Client.all.sample.id, status: ['in_progress', 'complete'].sample)
+    Transaction.create!(listing_id: Listing.all.sample.id, seller_id: Seller.all.sample.id, client_id: Client.all.sample.id, status: "test")
 end
 
 # Should have Unique transaction!
