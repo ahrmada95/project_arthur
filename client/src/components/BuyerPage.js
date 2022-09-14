@@ -29,7 +29,7 @@ const BuyerPage = () => {
         </div>
         <div id="buyer-in-the-works">
             <h2>In progress:</h2>
-            {inProgressCards.map(card => {
+            {inProgressCards&& inProgressCards.map(card => {
                 console.log(card.status)
                 return(
                     <BuyerCard cardType={'in_progress'} title={card?.listing?.name} description={card?.listing?.description} />
@@ -38,7 +38,7 @@ const BuyerPage = () => {
         </div>
         <div id='buyer-approve'>
             <h2>Ready for approval</h2>
-            {completedCards.map(card => {
+            {completedCards && completedCards.map(card => {
                 return(
                     <BuyerCard cardType={'completed'} title={card?.listing?.name} description={card?.listing?.description} setIsConfirming={setIsConfirming} />
                 )
