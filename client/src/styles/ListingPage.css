@@ -56,8 +56,21 @@ border-top-right-radius: 10px;
     color: #4cd137;
 }
 
-#listing-pricing-info button {
-    font-size: 1.6vw;
+#add-to-cart{
+    background-color: white;
+    color: #FF5F3D;
+    font-size: 1.2vw;
+    padding: 5px 10px;
+    border-radius:5px;
+    border: 1px solid rgba(0, 0, 0, 0.455);
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#buy-now {
+    font-size: 1.2vw;
     padding: 5px 10px;
     border-radius:5px;
     border: none;
@@ -118,5 +131,10 @@ align-items: center;
 #listing-seller-rating{
     color: #eecd0d;
     font-weight: 600;
+}
+
+#button-container{
+display: flex;
+gap: 20px;
 }
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    #skip_before_action :verify_authenticity_token
 
     def index 
         render json: User.all
@@ -7,6 +7,15 @@ class UsersController < ApplicationController
 
     def show
         render json: User.find_by(id: params[:id])
+    end
+
+    def check_login 
+        this_user = User.find_by(id: session[:user_id])
+        if this_user 
+            render json: {first_name: this_user.first_name, last_name: this_user.last_name, user_name: this_user.email}
+        else 
+            render json: {error: "Invalid login"}, status: 418
+        end
     end
 
     def create 

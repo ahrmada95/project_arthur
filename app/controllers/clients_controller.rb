@@ -35,6 +35,7 @@ class ClientsController < ApplicationController
     def permitted_params
         params.permit(:user_id)
     end
+
     def render_not_found_response
         render json: { error: "Client not found" }, status: :not_found
     end
@@ -43,4 +44,8 @@ class ClientsController < ApplicationController
         render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
     end
 
+    def get_client_id 
+        curr_user = User.find_by(id: session[:user_id])
+        return curr_user.clients
+    end
 end

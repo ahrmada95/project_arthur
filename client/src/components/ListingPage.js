@@ -6,7 +6,7 @@ import ConfirmTransaction from './ConfirmTransaction'
 
 
 
-const ListingPage = () => {
+const ListingPage = ({setCartItems}) => {
     let { listingId } = useParams();
     const [isConfirming, setIsConfirming] = useState(false)
     const isPurchase = true
@@ -21,6 +21,22 @@ const ListingPage = () => {
 
         getListingById()
     }, [])
+
+    const handleAddToCart =() => {
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        if (cart == null){
+            setCartItems([listing])
+            localStorage.setItem('cart', JSON.stringify([listing]))
+        }else if (!cart.some(item => item.name === listing.name)){
+            cart.push(listing)
+            setCartItems(prev => [...prev, listing])
+            localStorage.setItem('cart', JSON.stringify(cart))
+        }else {
+            console.log('already in cart')
+        }
+    }
+
+
 return(
     <div id="listing-page">
         <div id='listing-top-wrapper'>
@@ -36,7 +52,10 @@ return(
                 <li><ion-icon id='listing-checkmark' name="checkmark-outline"></ion-icon>24 hour support</li>
                 <li><ion-icon id='listing-checkmark' name="checkmark-outline"></ion-icon>Satisfaction Gurarantee</li>
                 </ul>
-                <button onClick={()=> {setIsConfirming(true)}}>Buy now</button>
+                <div id='button-container'>
+                <button id='add-to-cart' onClick={handleAddToCart}> <ion-icon name="cart-outline"></ion-icon> Add to cart</button>
+                <button id='buy-now' onClick={()=> {setIsConfirming(true)}}>Buy now</button>
+                </div>
             </div>
         </div>
         </div>
