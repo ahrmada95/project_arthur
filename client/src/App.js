@@ -32,7 +32,7 @@ const App = () => {
         <Route exact key={2}  path='/seller' element={<SellerPage/>}/>
         <Route exact key={3}  path='/buyer' element={<BuyerPage/>}/>
         <Route exact key={4}  path='/listing/:listingId' element={<ListingPage setCartItems={setCart}/>}/>
-        <Route exact key={5}  path='/search' element={<SearchPage/>}/>
+        <Route exact key={5}  path='/search/:searchValue' element={<SearchPage/>}/>
         </Routes>
       </Router>
       <Footer/>

@@ -5,13 +5,15 @@ import { NavLink } from 'react-router-dom'
 const Navbar = ({setIsLoginPop, cart}) => {
    const {globalUser, setGlobalUser} = useContext(UserContext)
    const [itemsInCart, setItemsInCart] = useState(0)
+   const [searchValue, setSearchValue] = useState("")
+   
 return (
    <nav id='nav'>
    <a href='/'>
     <img  id='logo' src='../logov2.png'/>
     </a>
-    <form id='navbar-search-form'>
-    <input type='text' id='seach-input-field' placeholder='Search anything...'/>
+    <form id='navbar-search-form' action={`/search/:${searchValue}`}>
+    <input type='text' id='seach-input-field' placeholder='Search anything...' value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
     <button id='search-btn' ><ion-icon name="search-outline"></ion-icon></button>
     </form>
     {
