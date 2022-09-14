@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post '/listings', to: 'listings#create'
   delete '/listings/:id', to: 'listings#destroy'
   patch '/listings/:id', to: 'listings#update'
+  get '/search', to: 'listings#search'
 
   get '/reviews', to: 'reviews#index'
   get '/reviews/:id', to: 'reviews#show'
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
 
   get '/transactions', to: 'transactions#index'
   get '/transactions/:id', to: 'transactions#show'
+  get '/trans/:id', to: 'transactions#find_by_user'
   post '/transactions', to: 'transactions#create'
   delete '/transactions/:id', to: 'transactions#destroy'
   # patch '/transactions/:id', to: 'transactions#update'
@@ -51,5 +53,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
   
+
 
 end

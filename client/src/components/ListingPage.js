@@ -1,19 +1,36 @@
 import '../styles/ListingPage.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Routes, Route, useParams } from 'react-router-dom';
 import ConfirmTransaction from './ConfirmTransaction'
+
+
+
+
 const ListingPage = () => {
+    let { listingId } = useParams();
     const [isConfirming, setIsConfirming] = useState(false)
     const isPurchase = true
+    const [listing, setListing] = useState({})
+
+    useEffect(()=> {
+        const getListingById = async() => {
+            let req = await fetch(`http://localhost:3000/listings/${listingId}`)
+            let res = await req.json()
+            setListing(res)
+        }
+
+        getListingById()
+    }, [])
 return(
     <div id="listing-page">
         <div id='listing-top-wrapper'>
-        <h1>{'Title'}</h1>
+        <h1>{listing?.name}</h1>
         <div id='listing-top-container'>
             <div id='listing-img-container'>
-                <img src={'./example-web.webp'} alt={'title'}/>
+                <img src={'https://www.thebalancecareers.com/thmb/FDh8qXdM3B8zOvKiejYoz8zVrjY=/1500x1000/filters:fill(auto,1)/web-developer-job-description-salary-and-skills-2061841_final-edit-01-ac18fd4e99df46e990e4277a821faa0f.jpg'} alt={'title'}/>
             </div>
             <div id='listing-pricing-info'>
-                <h2>Always Affordable: {'$100'}</h2>
+                <h2>Always Affordable: ${listing?.price}</h2>
                 <ul>
                 <li><ion-icon id='listing-checkmark' name="checkmark-outline"></ion-icon>Indevidualized Invoice</li>
                 <li><ion-icon id='listing-checkmark' name="checkmark-outline"></ion-icon>24 hour support</li>
@@ -26,17 +43,17 @@ return(
         <div id='listing-bottom-wrapper'>
 
         <h2>About this listing:</h2>
-            <p>{'This is a description of the services being offered by the creator.  I am sure they will all very talented at doing things.  lots of things. all the things'}</p>
+            <p>{listing?.description}</p>
             <h2>About the creator:</h2>
             <div id='listing-seller-info'>
               <div id='listing-flex-container'>
               <div id='listing-avatar-container'>
                 <img src={`https://avatars.dicebear.com/api/personas/${Math.floor(Math.random())}.svg`}/>
                 </div>
-                <p>{'Anya Sirman'}</p>
-                <p id='listing-seller-rating'> {'⭐️'.repeat(4.78)}{' 4.78'}</p>
+                <p>{listing.seller?.id}</p>
+                <p id='listing-seller-rating'> {'⭐️'.repeat(listing?.seller?.rating)}{listing?.seller?.rating}</p>
               </div>
-                <p>{'I am a web developer that would love to work with you on your next project.  I have over 150 years of expirence working in the web industry and know that we could make something great together.'}</p>
+                <p>{listing?.seller?.bio}</p>
             </div>
         </div>
         {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase}/> }

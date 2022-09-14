@@ -2,13 +2,30 @@ class ListingsController < ApplicationController
     skip_before_action :verify_authenticity_token
     
     def index
-        render json: Listing.all
+        listings = Listing.all
+        render json: listings
+    end
+
+    def search
+        # @listing = Listing.where("lower(name) LIKE :search OR lower(description) LIKE :search ", search: "%#{params[:key.downcase]}%")
+        listings = []
+        param = params[:key].downcase 
+        if param == "all"
+            listings = Listing.all
+        else
+            Listing.all.each do |list|
+            if list[:name].downcase.include?(param) || list[:description].downcase.include?(param) || list[:tags].include?(param)
+               listings << list
+            end
+        end
+        end 
+        render json: listings
     end
 
     def show
         listing = find_listing
         if listing
-        render json: listing
+        render json: listing.to_json(methods: [:seller])
         else 
             render json:{error: 'Listing not Found'}, status: :not_found
         end
@@ -40,9 +57,8 @@ class ListingsController < ApplicationController
             render json: listing
         else
             render json: {error: 'Listing not found'}, status: :not_found
+        end
     end
-    end
-
     private
 
     def find_listing

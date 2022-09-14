@@ -21,6 +21,7 @@ margin-bottom: 2em;
     border: 1px solid rgba(0, 0, 0, 0.491);
     border-radius: 10px;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .buyer-card-info{
@@ -53,6 +54,7 @@ margin-bottom: 2em;
     border: 1px solid rgba(0, 0, 0, 0.491);
     border-radius: 10px;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .buyer-approve-card-info{

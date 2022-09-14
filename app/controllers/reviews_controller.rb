@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        review = review.find_by(params[:id])
+        review = Review.find(params[:id])
         render json: review
     end
 
@@ -16,8 +16,15 @@ class ReviewsController < ApplicationController
         render json: review
     end
 
+    def update
+        review = Review.find(params[:id])
+        review.update( 
+            score: params[:score]
+        )
+    end
+
     def destroy
-        review = review.find_by(params[:id])
+        review = Review.find(params[:id])
         review.destroy
         head :no_content
     end

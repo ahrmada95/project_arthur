@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
     end
 
     def show
-        client = Client.find_by(params[:id])
+        client = Client.find(params[:id])
         render json: client
     end
 
@@ -16,9 +16,16 @@ class ClientsController < ApplicationController
         client = Client.create!(permitted_params)
         render json: client
     end
+    # Do we need update? 
+    # def update
+    #     client = Client.find_by(params[:id])
+    #     client.update(
+    #       user_id: params[:user_id]  
+    #     )
+    # end
 
     def destroy
-       client = Client.find_by(params[:id])
+       client = Client.find(params[:id])
        client.destroy 
        head :no_content 
     end
