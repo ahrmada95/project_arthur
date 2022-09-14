@@ -21,7 +21,6 @@ const BuyerPage = () => {
         
         getTransactions()
     }, [])
-    console.log(inProgressCards, completedCards)
     return (
     <div id='buyer-page'>
         <div id="buyer-welcome">
@@ -30,7 +29,6 @@ const BuyerPage = () => {
         <div id="buyer-in-the-works">
             <h2>In progress:</h2>
             {inProgressCards.map(card => {
-                console.log(card.status)
                 return(
                     <BuyerCard cardType={'in_progress'} title={card?.listing?.name} description={card?.listing?.description} />
                 )

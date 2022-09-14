@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <UserContext.Provider value={value}>
-      <Navbar setIsLoginPop={setIsLoginPop} cart={cart}/>
+      <Navbar setIsLoginPop={setIsLoginPop} cart={cart} setCart={setCart}/>
       {isLoginPop&& <Authform setIsLoginPop={setIsLoginPop} />}
       <Router>
         <Routes>
