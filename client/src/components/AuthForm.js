@@ -15,10 +15,9 @@ const Authform = ({setIsLoginPop}) => {
             })
             let res = await req.json()
             if (req.ok){
-                console.log(res)
                 setGlobalUser({first_name: res.first_name, last_name: res.last_name, email: res.email})
                 setIsLoginPop(false)
-                Cookies.set('auth-token', res.session)
+                Cookies.set('auth-token', res.session, { expires: 1 })
 
             }
 
