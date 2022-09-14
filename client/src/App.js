@@ -24,9 +24,9 @@ const App = () => {
   return (
     <div className="App">
       <UserContext.Provider value={value}>
-      <Navbar setIsLoginPop={setIsLoginPop} cart={cart} setCart={setCart}/>
       {isLoginPop&& <Authform setIsLoginPop={setIsLoginPop} />}
       <Router>
+      <Navbar setIsLoginPop={setIsLoginPop} cart={cart} setCart={setCart}/>
         <Routes>
         <Route exact key={1} path ='/' element={<Home/>}/>
         <Route exact key={2}  path='/seller' element={<SellerPage/>}/>

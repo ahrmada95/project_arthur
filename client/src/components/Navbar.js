@@ -55,7 +55,7 @@ return (
                   </div>
                   <div className='cart-card-btns'>
                   <button onClick={()=>{removeItemFromCart(item.id)}} className='cart-card-remove'>Remove</button>
-                  {globalUser.first_name?<button className='cart-card-contiune'>Continue to request</button>:<button className='cart-card-signin'>Sign in to Contine</button>}
+                  {globalUser.first_name? <a href={`/listing/${item.id}`}><button className='cart-card-contiune'>Continue to request</button></a>:<button className='cart-card-signin'>Sign in to Contine</button>}
                   </div>
                </div>
                )
