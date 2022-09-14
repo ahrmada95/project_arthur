@@ -9,6 +9,7 @@ import SellerPage from './components/SellerPage';
 import BuyerPage from './components/BuyerPage';
 import ListingPage from './components/ListingPage';
 import SearchPage from './components/SearchPage';
+import Cookies from 'js-cookie'
 export const UserContext = createContext();
 
 
@@ -21,11 +22,15 @@ const App = () => {
 
           setCart(JSON.parse(localStorage.getItem('cart')) || []) 
           const validSesson = async() => {
-              let req = await fetch('http://localhost:3000/login')
+              let userId = Cookies.get('auth-token')
+              let req = await fetch(`http://localhost:3000/check_user`, {
+                method: "POST", 
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify({user_id: userId})
+              })
               let res = await req.json()
-              console.log(res)
+              setGlobalUser({first_name: res.first_name, last_name: res.last_name, email: res.email})
           }
-
           validSesson()
   }, [])
   return (

@@ -1,4 +1,5 @@
 import '../styles/AuthForm.css'
+import Cookies from 'js-cookie'
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../App'
 const Authform = ({setIsLoginPop}) => {
@@ -17,6 +18,8 @@ const Authform = ({setIsLoginPop}) => {
                 console.log(res)
                 setGlobalUser({first_name: res.first_name, last_name: res.last_name, email: res.email})
                 setIsLoginPop(false)
+                Cookies.set('auth-token', res.session)
+
             }
 
         }
