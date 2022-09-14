@@ -9,7 +9,9 @@ import SellerPage from './components/SellerPage';
 import BuyerPage from './components/BuyerPage';
 import ListingPage from './components/ListingPage';
 import SearchPage from './components/SearchPage';
+import SellerOnBoard from './components/SellerOnBoard';
 import Cookies from 'js-cookie'
+
 export const UserContext = createContext();
 
 
@@ -41,10 +43,11 @@ const App = () => {
       <Router>
         <Routes>
         <Route exact key={1} path ='/' element={<Home/>}/>
-        <Route exact key={2}  path='/seller' element={<SellerPage/>}/>
+        <Route exact key={2}  path='/dashboard' element={<SellerPage/>}/>
         <Route exact key={3}  path='/buyer' element={<BuyerPage/>}/>
         <Route exact key={4}  path='/listing/:listingId' element={<ListingPage setCartItems={setCart}/>}/>
         <Route exact key={5}  path='/search/:searchValue' element={<SearchPage/>}/>
+        <Route exact key={6}  path='/become-a-seller' element={<SellerOnBoard/>}/>
         </Routes>
       </Router>
       <Footer/>

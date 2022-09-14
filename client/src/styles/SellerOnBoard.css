@@ -1,0 +1,186 @@
+#seller-onboard{
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#seller-onboard-container{
+}
+
+#onboard-header{
+
+}
+
+
+#onboard-header video {
+    height: 400px;
+}
+#oboard-hero {
+margin-top: -3em;
+background-color: #FF5F3D;;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='206' height='206' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23d23d09' fill-opacity='0.29'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.29'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+height: 60vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+#oboard-hero h2 {
+    font-size: 3em;
+    color: white;
+    margin: 0;
+}
+
+#oboard-hero p{
+font-size: 2em;
+max-width: 500px;
+color: white;
+text-align: center;
+
+}
+
+#oboard-hero button {
+font-size: 3em;
+color: white;
+background-color: transparent;
+padding: 5px 10px;
+border-radius: 10px;
+border: 2px solid white;
+font-weight: 600;
+}
+
+#oboard-hero button:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+
+.onboard-card{
+    color: rgba(0, 0, 0, 0.738);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.onboard-card h1 {
+    margin: 10px;
+}
+
+.onboard-card ion-icon{
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.738);
+}
+
+#onboard-how-it-works{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+}
+
+#onboard-how-it-works h1{
+font-size: 2.5em;
+}
+
+
+
+#onboard-hoow-it-works-container{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+
+#onboard-model {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.527);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#onboard-model-container{
+background-color: white;
+height: 80%;
+width: 50%;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+#terms-and-conditions{
+    height: 450px;
+    width: 80%;
+    overflow: scroll;
+    background-color: rgba(0, 0, 0, 0.051);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+#model-new-btn{
+    font-size: 1.4em;
+    color: white;
+    background-color: #4cd137;
+    border: none;
+    margin-top: 1.4em;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+
+
+#onboard-model-container  h2 {
+    font-size: 2.6em;
+}
+
+#onboard-model-container button:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+#seller-setup {
+    background-color: white;
+    height: 80%;
+    width: 50%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#seller-setup h1{
+    font-size: 3em;
+}
+
+#seller-setup textarea {
+width: 60%;
+height: 50%;
+padding: 10px;
+}
+
+#seller-setup button {
+    font-size: 1.6em;
+    color: white;
+    background-color: #4cd137;
+    border: none;
+    margin-top: 1.4em;
+    border-radius: 5px;
+    padding: 5px 10px;
+}

@@ -1,7 +1,6 @@
 #buyer-page{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 80vh;
 }
@@ -13,6 +12,17 @@
 #buyer-in-the-works{
 width: 70%;
 margin-bottom: 2em;
+min-height: 50vh;
+}
+
+#no-projects{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+#no-projects img {
+    max-width: 30vw;
 }
 
 .buyer-card{
@@ -142,4 +152,25 @@ margin-bottom: 4em;
 #confirm-textarea{
     width: 65%;
     height: 40%;
+}
+
+#profile-become-seller{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 2em;
+}
+
+#profile-become-seller button {
+    font-size: 1.4em;
+    min-width: 200px;
+    border: none;
+    background-color: #FF5F3D;
+    color:white;
+}
+
+#profile-become-seller button:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+    cursor: pointer;
 }
