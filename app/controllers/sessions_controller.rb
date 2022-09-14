@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
 
         if (this_user && authenticate(this_user, params[:password]))
             session[:user_id] = this_user.id
-            render json: this_user.email, status: 202
+            render json: {first_name: this_user.first_name, last_name: this_user.last_name, email: this_user.email}, status: 202
         else 
-            render json: this_user.email, status: 418
+            render json: {error: 'incorrect information'}, status: 418
         end
     end
 
