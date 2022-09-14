@@ -1,14 +1,26 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
+import {useState, useEffect} from 'react'
  
 import '../styles/SearchPage.css'
 import ProductCard from './ProductCard'
 const SearchPage = () => {
+    let {searchValue} = useParams()
+    const[listings, setListings] = useState([])
+        useEffect(()=> {
+        const getListings =async() => {
+            let req = await fetch(`http://localhost:3000/search?key=${searchValue.substring(1)}`)
+            let res = await req.json()
+            setListings(res)
+        }   
+
+        getListings()
+    }, [])
 return (
    <div id='search-page'>
        <h1 id='search-header'>Results for {`"Item"`}</h1>
        <div id='search-results-container'>
            <div id='search-results-wrapper'>
-      <NavLink to='/listing' style={{textDecoration: 'none', color:'black'}}><ProductCard product={{img: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/264169987/original/3f6f79de873f7fc0ee77337471a87e3752c3a3c5/do-a-marketing-strategy-to-increase-your-instagram-followers.png', title: 'I will build your social media presence', price: '$6000'}}/></NavLink>
+           <NavLink to='/listing' style={{textDecoration: 'none', color:'black'}}> {listings.map(listing => <ProductCard key={listing.id} product={listing}/>)}</NavLink>
            </div>
        </div>
    </div>
