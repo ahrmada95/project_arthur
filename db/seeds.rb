@@ -22,6 +22,8 @@ puts "📃 Seeding data..."
     User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: Faker::Internet.password )
 end
 
+User.create(first_name: "Ahnaf", last_name: "Ahmad", email: "ahnaf@arthur.com", password: "password")
+
 client1 = Client.create!(user_id: User.all.sample.id)
 client2 = Client.create!(user_id: User.all.sample.id)
 client3 = Client.create!(user_id: User.all.sample.id)
