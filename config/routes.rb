@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
   # patch '/users/:id', to: 'users#update'
 
-  get '/login', to: "users#check_login"
+  post '/check_user', to: "users#check_login"
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
   

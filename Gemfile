@@ -76,3 +76,5 @@ end
 gem 'rack-cors'
 gem 'redis'
 
+gem 'jwt'
+
