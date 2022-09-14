@@ -13,13 +13,20 @@ export const UserContext = createContext();
 
 
 const App = () => {
-  const [globalUser, setGlobalUser] = useState({first_name: 'Anya'})
+  const [globalUser, setGlobalUser] = useState()
   const value = useMemo(() => ({ globalUser, setGlobalUser }), [globalUser, setGlobalUser]);
   const [isLoginPop, setIsLoginPop] = useState(false)
   const [cart, setCart] = useState([])
   useEffect(()=> {
 
           setCart(JSON.parse(localStorage.getItem('cart')) || []) 
+          const validSesson = async() => {
+              let req = await fetch('http://localhost:3000/login')
+              let res = await req.json()
+              console.log(res)
+          }
+
+          validSesson()
   }, [])
   return (
     <div className="App">
