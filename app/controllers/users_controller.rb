@@ -58,3 +58,6 @@ class UsersController < ApplicationController
             params.permit(:first_name, :last_name, :email, :password)
         end
 end
+
+
+

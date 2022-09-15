@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   post '/trans', to: 'transactions#find_by_user'
   post '/transactions', to: 'transactions#create'
   delete '/transactions/:id', to: 'transactions#destroy'
-  # patch '/transactions/:id', to: 'transactions#update'
+  patch '/transactions/:id', to: 'transactions#update'
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
