@@ -59,10 +59,10 @@ class UsersController < ApplicationController
         Listing.all.each do |listing|
             intersection = curr_tags & listing.tags
             if (intersection.size != 0) #you can change this to determine how specific you want it to be
-                suggested_listing_ids.push(listing.id)
+                suggested_listing_ids.push(listing)
             end
         end
-        return render json: suggested_listing_ids
+        return render json: suggested_listing_ids 
     end
 
     private 
