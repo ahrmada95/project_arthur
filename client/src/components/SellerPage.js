@@ -20,7 +20,7 @@ const SellerPage = () => {
             })
             let res = await req.json()
             setTransactions(res)
-            if (!res.ok){
+            if (!req.ok){
                 navigate('/')
             }
         }
