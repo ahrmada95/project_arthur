@@ -21,7 +21,6 @@ const App = () => {
   const [isLoginPop, setIsLoginPop] = useState(false)
   const [cart, setCart] = useState([])
   useEffect(()=> {
-
           setCart(JSON.parse(localStorage.getItem('cart')) || []) 
           const validSesson = async() => {
               let userId = Cookies.get('auth-token')
