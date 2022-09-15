@@ -46,12 +46,12 @@ const BuyerPage = () => {
             <h1>Welcome, {globalUser?.first_name}</h1>
         </div>
         <div id="buyer-in-the-works">
-            {inProgressCards.length == 0 && completedCards.length == 0 &&
+            {inProgressCards?.length == 0 && completedCards?.length == 0 &&
              <div id="no-projects">
                 <img src="../no-proejcts.svg"/>
                 <h2>Looks like you don't have any orders yet</h2>
             </div>}
-           { inProgressCards.length != 0 && <h2>In progress:</h2>}
+           { inProgressCards?.length != 0 && <h2>In progress:</h2>}
             {inProgressCards&& inProgressCards.map(card => {
                 return(
                     <BuyerCard cardType={'in_progress'} title={card?.listing?.name} description={card?.listing?.description} />

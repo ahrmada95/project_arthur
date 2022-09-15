@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
-const SellerCard = ({item}) => {
+const SellerCard = ({item, setCurrentListing, setIsConfirming}) => {
 return (
-<div className='seller-req-card'>
+<div className='seller-req-card' >
     <div className='seller-req-card-info'>
             <h3>{item?.title}</h3>
             <p>{item?.description}</p>
@@ -9,8 +9,8 @@ return (
         {
             item?.status == 'requested'&&
             <div className='seller-req-card-status'>
-            <button className='seller-req-card-status-accept hover'>Accept</button>
-            <button className='seller-req-card-status-decline hover'>Decline</button>
+            <button className='seller-req-card-status-accept hover' onClick={()=> {setCurrentListing(item); setIsConfirming(true)}}>Accept</button>
+            <button className='seller-req-card-status-decline hover' onClick={()=> {setIsConfirming(true)}}>Decline</button>
             </div> 
         }
         {

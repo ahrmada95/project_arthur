@@ -22,6 +22,12 @@ class TransactionsController < ApplicationController
         render json:{ in_progress: in_progress_transactions.as_json(methods: [:listing]), completed: completed_transactions.as_json(methods: [:listing])}
     end
 
+    def edit_listing_status
+        transaction = Transaction.find_by(id: params[:id])
+        transaction.update(status: params[:status])
+        render json: transaction
+    end
+
     def create 
 
         # t.integer "listing_id"

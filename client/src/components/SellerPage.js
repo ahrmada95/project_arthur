@@ -1,15 +1,20 @@
 import '../styles/SellerPage.css'
 import { UserContext } from '../App'
 import { useState, useEffect, useContext } from 'react'
+import ConfirmTransaction from './ConfirmTransaction'
 import { useNavigate } from 'react-router-dom'
 import SellerCard from './SellerCard'
 import Cookies from 'js-cookie'
 
 const SellerPage = () => {
+    const isPurchase = false
     const {globalUser, setGlobalUser} = useContext(UserContext)
     const [transactions, setTransactions] = useState([])
     const navigate = useNavigate()
     window.scrollTo(0, 0);
+    const [currentListing, setCurrentListing] = useState()
+    const [isConfirming, setIsConfirming] = useState(false)
+    console.log(isPurchase)
     useEffect(()=> {
         const getUser = async() => {
             let userId = Cookies.get('auth-token')
@@ -20,12 +25,13 @@ const SellerPage = () => {
             })
             let res = await req.json()
             setTransactions(res)
-            if (!res.ok){
+            if (!req.ok){
                 navigate('/')
             }
         }
         getUser()
     }, [])
+
     return (
 <div id='seller-page'>
     <div id='seller-welcome'>
@@ -37,7 +43,7 @@ const SellerPage = () => {
             {transactions.map(item => {
                 if (item.status == 'requested'){
                 return (
-                    <SellerCard item={{title: item?.listing?.name, description: item?.listing?.description, status: item?.status}}/>
+                    <SellerCard setIsConfirming={setIsConfirming} setCurrentListing={setCurrentListing} item={{title: item?.listing?.name, description: item?.listing?.description, id: item?.id, status: item?.status}}/>
                 )
                 }
             })}
@@ -48,13 +54,14 @@ const SellerPage = () => {
                 if (item.status == 'in_progress'){
 
                     return (
-                        <SellerCard item={{title: item?.listing?.name, description: item?.listing?.description, status: item?.status}}/>
+                        <SellerCard setIsConfirming={setIsConfirming} item={{title: item?.listing?.name, description: item?.listing?.description, status: item?.status, id: item?.id}}/>
                     )
                 }
             })}
 
         </div>
     </div>
+    {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase} listing={currentListing}/> }
 </div>
     )
 }

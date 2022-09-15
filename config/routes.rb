@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get '/transactions/:id', to: 'transactions#show'
   post '/trans', to: 'transactions#find_by_user'
   post '/transactions', to: 'transactions#create'
+  patch'/transactions/:id', to: 'transactions#edit_listing_status'
   delete '/transactions/:id', to: 'transactions#destroy'
   # patch '/transactions/:id', to: 'transactions#update'
 
