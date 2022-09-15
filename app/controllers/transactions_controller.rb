@@ -9,8 +9,16 @@ class TransactionsController < ApplicationController
     end
 
     def find_by_user
-        in_progress_transactions = Transaction.where(client_id: params[:id], status: 'in_progress')
-        completed_transactions = Transaction.where(client_id: params[:id], status: 'complete')
+
+        token = params[:user_id]
+        hmac_secret = 'my$ecretK3y'
+        decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+        this_user = User.find_by(id: decoded_token[0]["data"])
+        puts this_user
+        client = Client.find_by(user_id: this_user.id)
+        puts client
+        in_progress_transactions = Transaction.where(client_id: client.id, status: 'in_progress')
+        completed_transactions = Transaction.where(client_id: client.id, status: 'completed')
         render json:{ in_progress: in_progress_transactions.as_json(methods: [:listing]), completed: completed_transactions.as_json(methods: [:listing])}
     end
 

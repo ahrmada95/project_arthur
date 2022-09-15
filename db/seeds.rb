@@ -79,7 +79,7 @@ end
 # Seller can have few transation
 # Client can have few transation
 50.times do
-    Transaction.create!(listing_id: Listing.all.sample.id, seller_id: Seller.all.sample.id, client_id: Client.all.sample.id, status: ['in_progress', 'requested', 'completed'].sample)
+    Transaction.create!(listing_id: Listing.all.sample.id, seller_id: Seller.all.sample.id, client_id: Client.all.sample.id, status: [ 'requested', 'completed', 'in-progress'].sample)
 end
 
 # Should have Unique transaction!

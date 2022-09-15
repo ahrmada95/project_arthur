@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react"
 import BuyerCard from "./BuyerCard"
 import ConfirmTransaction from "./ConfirmTransaction"
 import '../styles/BuyerPage.css'
+import { NavLink } from "react-router-dom"
+import Cookies from 'js-cookie'
 
 const BuyerPage = () => {
     const [isConfirming, setIsConfirming] = useState(false)
@@ -13,15 +15,23 @@ const BuyerPage = () => {
 
      useEffect(()=> {
        const getTransactions =async() => {
-            let req = await fetch(`http://localhost:3000/trans/5`)
+            let userId = Cookies.get('auth-token')
+            let req = await fetch(`http://localhost:3000/trans`, {
+                method: "POST",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify({user_id: userId})
+            })
             let res = await req.json()
             setInProgreesCards(res.in_progress)
             setCompletedCards(res.completed)
+            console.log(res)
         }   
         
         getTransactions()
     }, [])
-    console.log(inProgressCards, completedCards)
+
+
+    //add redirect
     return (
     <div id='buyer-page'>
         <div id="buyer-welcome">
@@ -35,7 +45,6 @@ const BuyerPage = () => {
             </div>}
            { inProgressCards.length != 0 && <h2>In progress:</h2>}
             {inProgressCards&& inProgressCards.map(card => {
-                console.log(card.status)
                 return(
                     <BuyerCard cardType={'in_progress'} title={card?.listing?.name} description={card?.listing?.description} />
                 )
@@ -56,7 +65,7 @@ const BuyerPage = () => {
         </div>
         <div id="profile-become-seller">
             <h2>Feeling creative?</h2>
-            <button>Become a seller</button>
+            <NavLink to='/become-a-seller'><button>Become a seller</button></NavLink>
         </div>
        {isConfirming&& <ConfirmTransaction setIsConfirming={setIsConfirming}/>}
     </div>
