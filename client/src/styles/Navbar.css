@@ -101,7 +101,7 @@ align-items: center;
 position: absolute;
 top: 17px;
 right: 16px;
-
+margin-left: 1em;
 }
 
 #cart-icon p {
@@ -240,4 +240,19 @@ font-weight: 600;
     border-radius: 5px;
     color: white;
     padding: 5px 10px;
+}
+
+#sign-out {
+    border: none;
+    font-size: 1.3em;
+    margin-left: -6em;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: transparent;
+}
+
+#sign-out:hover {
+background-color: rgba(0, 0, 0, 0.124);
+transition: 300ms;
+cursor: pointer;
 }

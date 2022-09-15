@@ -1,8 +1,10 @@
 import '../styles/Navbar.css'
 import { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../App'
-import { NavLink } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { NavLink, useNavigate } from 'react-router-dom'
 const Navbar = ({setIsLoginPop, cart, setCart}) => {
+   const navigate = useNavigate()
    const {globalUser, setGlobalUser} = useContext(UserContext)
    const [itemsInCart, setItemsInCart] = useState(0)
    const [searchValue, setSearchValue] = useState("")
@@ -45,6 +47,7 @@ return (
       <p>{cart.length}</p>
       </div>}
       </button>
+      {Cookies.get('auth-token') &&<form><button id='sign-out' onClick={()=> {navigate('/'); Cookies.remove('auth-token')}}>Sign out</button></form>}
       {
          isShowingCart&& 
          <div id='cart-pop-up' onClick={()=> {setIsShowingCart(false)}}>

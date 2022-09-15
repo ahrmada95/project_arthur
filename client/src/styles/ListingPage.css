@@ -1,5 +1,5 @@
 #listing-page{
-  
+  margin-top: -1em;
 }
 
 #listing-top-wrapper {
@@ -9,11 +9,18 @@
     align-items: center;
 }
 
+#listing-top-wrapper h1{
+margin-bottom: 2em;
+}
+
+
 #listing-top-container{
     display: flex;
     width: 80%;
     height: 62.9vh;
     overflow: hidden;
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.367);
+    border-radius: 10px;
 }
 
 #listing-img-container{
@@ -30,7 +37,7 @@ border-top-left-radius: 10px;
 
 #listing-pricing-info{
 width:33.3%;
-border: 1px solid rgba(0, 0, 0, 0.485);
+/* border: 1px solid rgba(0, 0, 0, 0.485); */
 border-left: none;
 display: flex;
 flex-direction: column;
@@ -129,12 +136,16 @@ align-items: center;
 
 
 #listing-seller-rating{
-    color: #eecd0d;
+    color: rgba(33, 28, 28, 0.191);
     font-weight: 600;
 }
 
 #button-container{
 display: flex;
 gap: 20px;
+}
+
+#seller-rating-num {
+    color: #FFD700;
 }
 

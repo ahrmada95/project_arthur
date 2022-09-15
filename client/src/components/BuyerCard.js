@@ -1,6 +1,7 @@
-
-
+import { useEffect, useContext } from "react"
 const BuyerCard = ({cardType, title, description, setIsConfirming}) => {
+
+
 const cardToShow = () => {
     if (cardType == 'in_progress'){
         return(

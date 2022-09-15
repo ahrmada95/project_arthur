@@ -23,7 +23,17 @@ class TransactionsController < ApplicationController
     end
 
     def create 
-        new_transaction = Transaction.create(transaction_params)
+
+        # t.integer "listing_id"
+        # t.integer "seller_id"
+        # t.integer "client_id"
+        # t.string "status"
+        token = params[:user_id]
+        hmac_secret = 'my$ecretK3y'
+        decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
+        this_user = User.find_by(id: decoded_token[0]["data"])
+        client = Client.find_by(user_id: this_user.id)
+        new_transaction = Transaction.create(listing_id: params[:listing_id], seller_id: params[:seller_id], status: params[:status], client_id: client.id)
         if new_transaction.valid?
             render json: new_transaction, status: :created
         else  
@@ -43,6 +53,6 @@ class TransactionsController < ApplicationController
 
     private 
         def transaction_params 
-            params.permit(:listing_id, :seller_id, :client_id, :status)
+            params.permit(:listing_id, :seller_id, :client_id, :status, :user_id)
         end
 end

@@ -11,17 +11,18 @@ const ListingPage = ({setCartItems}) => {
     const [isConfirming, setIsConfirming] = useState(false)
     const isPurchase = true
     const [listing, setListing] = useState({})
+    const [seller, setSeller] = useState({})
 
     useEffect(()=> {
         const getListingById = async() => {
             let req = await fetch(`http://localhost:3000/listings/${listingId}`)
             let res = await req.json()
-            setListing(res)
+            setListing(res.listing)
+            setSeller(res)
         }
 
         getListingById()
     }, [])
-
     const handleAddToCart =() => {
         let cart = JSON.parse(localStorage.getItem('cart'))
         if (cart == null){
@@ -32,18 +33,16 @@ const ListingPage = ({setCartItems}) => {
             setCartItems(prev => [...prev, listing])
             localStorage.setItem('cart', JSON.stringify(cart))
         }else {
-            console.log('already in cart')
         }
     }
 
-
-return(
+    return(
     <div id="listing-page">
         <div id='listing-top-wrapper'>
         <h1>{listing?.name}</h1>
         <div id='listing-top-container'>
             <div id='listing-img-container'>
-                <img src={'https://www.thebalancecareers.com/thmb/FDh8qXdM3B8zOvKiejYoz8zVrjY=/1500x1000/filters:fill(auto,1)/web-developer-job-description-salary-and-skills-2061841_final-edit-01-ac18fd4e99df46e990e4277a821faa0f.jpg'} alt={'title'}/>
+                <img src={listing?.images} alt={'title'}/>
             </div>
             <div id='listing-pricing-info'>
                 <h2>Always Affordable: ${listing?.price}</h2>
@@ -69,13 +68,14 @@ return(
               <div id='listing-avatar-container'>
                 <img src={`https://avatars.dicebear.com/api/personas/${Math.floor(Math.random())}.svg`}/>
                 </div>
-                <p>{listing.seller?.id}</p>
-                <p id='listing-seller-rating'> {'⭐️'.repeat(listing?.seller?.rating)}{listing?.seller?.rating}</p>
+                <p>{seller?.first_name} {seller?.last_name}</p>
+                <p id='listing-seller-rating'> {'⭐️'.repeat(seller?.rating)}{'★'.repeat(5 - seller?.rating)}</p>
+                <p id='seller-rating-num' >{seller?.rating}</p>
               </div>
-                <p>{listing?.seller?.bio}</p>
+                <p>{seller?.bio}</p>
             </div>
         </div>
-        {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase}/> }
+        {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase} listing={listing}/> }
     </div>
 )
 }

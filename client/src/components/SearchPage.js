@@ -17,10 +17,11 @@ const SearchPage = () => {
     }, [])
 return (
    <div id='search-page'>
-       <h1 id='search-header'>Results for {`"Item"`}</h1>
+       <h1 id='search-header'>Showing results for {`"${searchValue.split(':')[1]}"`}</h1>
        <div id='search-results-container'>
            <div id='search-results-wrapper'>
-           <NavLink to='/listing' style={{textDecoration: 'none', color:'black'}}> {listings.map(listing => <ProductCard key={listing.id} product={listing}/>)}</NavLink>
+    {listings.length == 0 && <div id='no-search-res-container'> <img id='no-search-res' src='../no-search-res.svg'/> <h1>Oh No! Looks like that item doesn't exist</h1></div>}
+    { listings.length != 0 &&listings.map(listing => <ProductCard key={listing.id} product={listing}/>)}
            </div>
        </div>
    </div>
