@@ -55,7 +55,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
   
-  
-
+  get '/users/suggested/:listing_id', to: 'users#get_suggested_listings'
 
 end

@@ -53,6 +53,19 @@ class UsersController < ApplicationController
         end
     end
 
+    def get_suggested_listings
+        suggested_listing_ids = []
+        curr_tags = Listing.find_by(id: params[:listing_id]).tags
+        Listing.all.each do |listing|
+            intersection = curr_tags & listing.tags
+            if (intersection.size != 0)
+                suggested_listing_ids.push(listing.id)
+            end
+        end
+        puts suggested_listing_ids
+        return render json: suggested_listing_ids
+    end
+
     private 
         def user_params 
             params.permit(:first_name, :last_name, :email, :password)
