@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
 const SellerCard = ({item}) => {
-    console.log(item)
 return (
 <div className='seller-req-card'>
     <div className='seller-req-card-info'>
@@ -8,7 +7,7 @@ return (
             <p>{item?.description}</p>
         </div>
         {
-            item?.status == 'pending'&&
+            item?.status == 'requested'&&
             <div className='seller-req-card-status'>
             <button className='seller-req-card-status-accept hover'>Accept</button>
             <button className='seller-req-card-status-decline hover'>Decline</button>

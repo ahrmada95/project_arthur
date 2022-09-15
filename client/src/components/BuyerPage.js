@@ -28,7 +28,12 @@ const BuyerPage = () => {
             <h1>Welcome, {globalUser?.first_name}</h1>
         </div>
         <div id="buyer-in-the-works">
-            <h2>In progress:</h2>
+            {inProgressCards.length == 0 && completedCards.length == 0 &&
+             <div id="no-projects">
+                <img src="../no-proejcts.svg"/>
+                <h2>Looks like you don't have any orders yet</h2>
+            </div>}
+           { inProgressCards.length != 0 && <h2>In progress:</h2>}
             {inProgressCards&& inProgressCards.map(card => {
                 console.log(card.status)
                 return(
@@ -37,7 +42,8 @@ const BuyerPage = () => {
             })}
         </div>
         <div id='buyer-approve'>
-            <h2>Ready for approval</h2>
+
+            {completedCards.length != 0 && <h2>Ready for approval</h2>}
             {completedCards && completedCards.map(card => {
                 return(
                     <BuyerCard cardType={'completed'} title={card?.listing?.name} description={card?.listing?.description} setIsConfirming={setIsConfirming} />
@@ -47,6 +53,10 @@ const BuyerPage = () => {
 
         <div id='buyer-sugested-products'>
 
+        </div>
+        <div id="profile-become-seller">
+            <h2>Feeling creative?</h2>
+            <button>Become a seller</button>
         </div>
        {isConfirming&& <ConfirmTransaction setIsConfirming={setIsConfirming}/>}
     </div>
