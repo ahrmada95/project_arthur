@@ -1,4 +1,10 @@
-const ConfirmTransaction =({setIsConfirming, isPurchase}) => {
+import {useEffect} from 'react'
+
+const ConfirmTransaction =({setIsConfirming, isPurchase, listing_id}) => {
+
+    useEffect ( () => {
+        localStorage.setItem('tracking_id', `${listing_id}`)
+    })
 return (
     <div id='buyer-confirm-fullscreen' onClick={()=> {setIsConfirming(false)}}>
         <div id='buyer-confirm-window' onClick={(e) => {e.stopPropagation()}}>
