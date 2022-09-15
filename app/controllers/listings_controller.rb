@@ -23,8 +23,11 @@ class ListingsController < ApplicationController
 
     def show
         listing = find_listing
+        # user = User.find_by(id: listing.sller_id)
+        seller = Seller.find_by(id: listing.seller_id)
+        user = User.find_by(id: seller.user_id)
         if listing
-        render json: listing.to_json(methods: [:seller])
+        render json: {listing: listing, bio: seller.bio, seller_id: seller.id, rating: seller.rating, first_name: user.first_name, last_name: user.last_name}
         else 
             render json:{error: 'Listing not Found'}, status: :not_found
         end

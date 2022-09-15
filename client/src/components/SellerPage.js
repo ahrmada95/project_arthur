@@ -1,12 +1,14 @@
 import '../styles/SellerPage.css'
 import { UserContext } from '../App'
 import { useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import SellerCard from './SellerCard'
 import Cookies from 'js-cookie'
 
 const SellerPage = () => {
     const {globalUser, setGlobalUser} = useContext(UserContext)
     const [transactions, setTransactions] = useState([])
+    const navigate = useNavigate()
 
     useEffect(()=> {
         const getUser = async() => {
@@ -18,6 +20,9 @@ const SellerPage = () => {
             })
             let res = await req.json()
             setTransactions(res)
+            if (!res.ok){
+                navigate('/')
+            }
         }
         getUser()
     }, [])

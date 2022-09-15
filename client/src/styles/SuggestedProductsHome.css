@@ -18,7 +18,7 @@ min-height: 80vh;
 }
 
 #product-card-img{
-max-width:350px;
+max-width:100%;
 aspect-ratio: 16/9;
 }
 
@@ -29,11 +29,14 @@ aspect-ratio: 16/9;
 .product-card {
     margin-bottom: 2em;
     overflow: none;
+    height: 400px;
+    width: 500px;
 }
 
 .product-card:hover {
     transform: scale(1.05);
     transition: 300ms;
+    cursor: pointer;
 }
 
 .product-card p{

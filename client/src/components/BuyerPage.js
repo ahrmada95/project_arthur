@@ -3,10 +3,11 @@ import { useState, useEffect, useContext } from "react"
 import BuyerCard from "./BuyerCard"
 import ConfirmTransaction from "./ConfirmTransaction"
 import '../styles/BuyerPage.css'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
 const BuyerPage = () => {
+    const navigate = useNavigate()
     const [isConfirming, setIsConfirming] = useState(false)
     const {globalUser, setGloblUser} = useContext(UserContext)
     const [inProgressCards, setInProgreesCards] = useState([])
@@ -14,6 +15,10 @@ const BuyerPage = () => {
 
 
      useEffect(()=> {
+        if (!Cookies.get('auth-token')){
+            navigate('/')
+        }
+
        const getTransactions =async() => {
             let userId = Cookies.get('auth-token')
             let req = await fetch(`http://localhost:3000/trans`, {
@@ -67,7 +72,7 @@ const BuyerPage = () => {
             <h2>Feeling creative?</h2>
             <NavLink to='/become-a-seller'><button>Become a seller</button></NavLink>
         </div>
-       {isConfirming&& <ConfirmTransaction setIsConfirming={setIsConfirming}/>}
+       {isConfirming&& <ConfirmTransaction setIsConfirming={setIsConfirming} />}
     </div>
 )
 }
