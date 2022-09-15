@@ -44,7 +44,7 @@ return (
             <div id='buyer-confirm-btns'>
             <button onClick={()=>setIsConfirming(false)} id='buyer-confirm-deny-btn'>{isPurchase?'Back':'Deny'}</button>
             {isPurchase? <button id="buyer-confirm-confirm-btn" onClick={()=> {createTransaction(); setIsConfirming(false); }}>Continue</button>
-            :  <button onClick={()=> {console.log('click')}} id="buyer-confirm-confirm-btn">th</button>}
+            :  <button onClick={()=> {approveTransaction()}} id="buyer-confirm-confirm-btn">Approve</button>}
             
           
 

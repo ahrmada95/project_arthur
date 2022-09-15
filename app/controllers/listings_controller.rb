@@ -38,11 +38,12 @@ class ListingsController < ApplicationController
         hmac_secret = 'my$ecretK3y'
         decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
         this_user = User.find_by(id: decoded_token[0]["data"])
-        if this_user
-            transactions = Transaction.where(seller_id: this_user.id)
+        seller = Seller.find_by(user_id: this_user.id)
+        if seller
+            transactions = Transaction.where(seller_id: seller.id)
             render json: transactions.to_json(methods: [:listing])
         else
-            render json: {error: 'User not found'}
+            render json: {error: 'User not found'}, status: 404
         end
 
     end

@@ -1,5 +1,14 @@
 import { useState, useEffect, useContext } from 'react'
 const SellerCard = ({item, setCurrentListing, setIsConfirming}) => {
+    const completeTransaction = async() => {
+        let req = await fetch(`http://localhost:3000/trans_by_listing/${item.id}`, {
+            method: 'PATCH',
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({status: 'completed'})
+        })
+        let res = await req.json()
+        console.log(res)
+    }
 return (
 <div className='seller-req-card' >
     <div className='seller-req-card-info'>
@@ -14,9 +23,9 @@ return (
             </div> 
         }
         {
-             item?.status == 'in_progress'&& 
+             item?.status == 'in-progress'&& 
              <div>
-                <button className='seller-complete hover'>Complete</button>
+                <button onClick={()=> {completeTransaction()}} className='seller-complete hover'>Complete</button>
              </div>
         }
        
