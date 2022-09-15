@@ -38,13 +38,13 @@ const App = () => {
   return (
     <div className="App">
       <UserContext.Provider value={value}>
-      <Navbar setIsLoginPop={setIsLoginPop} cart={cart}/>
       {isLoginPop&& <Authform setIsLoginPop={setIsLoginPop} />}
       <Router>
+      <Navbar setIsLoginPop={setIsLoginPop} cart={cart} setCart={setCart}/>
         <Routes>
         <Route exact key={1} path ='/' element={<Home/>}/>
         <Route exact key={2}  path='/dashboard' element={<SellerPage/>}/>
-        <Route exact key={3}  path='/buyer' element={<BuyerPage/>}/>
+        <Route exact key={3}  path='/profile' element={<BuyerPage/>}/>
         <Route exact key={4}  path='/listing/:listingId' element={<ListingPage setCartItems={setCart}/>}/>
         <Route exact key={5}  path='/search/:searchValue' element={<SearchPage/>}/>
         <Route exact key={6}  path='/become-a-seller' element={<SellerOnBoard/>}/>
