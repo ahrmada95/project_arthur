@@ -9,7 +9,7 @@ const SellerPage = () => {
     const {globalUser, setGlobalUser} = useContext(UserContext)
     const [transactions, setTransactions] = useState([])
     const navigate = useNavigate()
-
+    window.scrollTo(0, 0);
     useEffect(()=> {
         const getUser = async() => {
             let userId = Cookies.get('auth-token')

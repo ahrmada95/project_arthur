@@ -7,6 +7,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
 const BuyerPage = () => {
+    window.scrollTo(0, 0);
     const navigate = useNavigate()
     const [isConfirming, setIsConfirming] = useState(false)
     const {globalUser, setGloblUser} = useContext(UserContext)
@@ -27,8 +28,10 @@ const BuyerPage = () => {
                 body: JSON.stringify({user_id: userId})
             })
             let res = await req.json()
-            setInProgreesCards(res.in_progress)
-            setCompletedCards(res.completed)
+            if (req.ok){
+                setInProgreesCards(res.in_progress)
+                setCompletedCards(res.completed)
+            }
             console.log(res)
         }   
         

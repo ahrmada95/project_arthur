@@ -5,6 +5,7 @@ import TermsAndConditions from "./TermsAndConditions"
 import {NavLink} from 'react-router-dom'
 
 const SellerOnBoard = () => {
+    window.scrollTo(0, 0);
     const [isConfirming, setIsConfirming] = useState(false)
     const [agreedToTerms, setAgreedToTerms] = useState(false)
     const [isStepTwo, setIsStepTwo] = useState(false)
