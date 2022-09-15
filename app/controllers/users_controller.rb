@@ -58,11 +58,10 @@ class UsersController < ApplicationController
         curr_tags = Listing.find_by(id: params[:listing_id]).tags
         Listing.all.each do |listing|
             intersection = curr_tags & listing.tags
-            if (intersection.size != 0)
+            if (intersection.size != 0) #you can change this to determine how specific you want it to be
                 suggested_listing_ids.push(listing.id)
             end
         end
-        puts suggested_listing_ids
         return render json: suggested_listing_ids
     end
 
