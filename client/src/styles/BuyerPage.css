@@ -18,7 +18,7 @@ color: white;
 #buyer-in-the-works{
 width: 70%;
 margin-bottom: 2em;
-min-height: 50vh;
+/* min-height: 50vh; */
 }
 
 #no-projects{
@@ -43,13 +43,12 @@ min-height: 50vh;
 
 .buyer-card-info{
     margin-right: auto;
-    max-width: 1000px;
     font-size: 1.6em;
     margin-bottom: 0;
+    max-width: 50%
 }
 
-.buyer-card-info p {
-    max-width: 1000px;
+.buyer-card-info p {   
     font-size: 0.6em;
 }
 
@@ -72,7 +71,7 @@ min-height: 50vh;
 .buyer-approve-card{
     display: flex;
     align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.278);
+    border: 1px solid white;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
@@ -80,7 +79,7 @@ min-height: 50vh;
 
 .buyer-approve-card-info{
     margin-right: auto;
-    max-width: 500px;
+    max-width: 50%;
 }
 
 .buyer-approve-card-status button{
@@ -90,11 +89,12 @@ min-height: 50vh;
     gap: 10px;
     font-size: 1.2em;
     height: 40px;
-    background-color: white ;
-    border: 1px solid rgba(0, 0, 0, 0.425);
+    background-color: transparent;
+    border: 1px solid white;
     border-radius: 10px;
-    color: #FF5F3D;
-    font-weight: 500;
+    color: white;
+    font-weight: 600;
+
 }
 
 .buyer-approve-card-status button:hover {

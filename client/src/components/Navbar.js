@@ -58,8 +58,8 @@ return (
                   <p className='cart-card-name'>{item?.name}</p>
                   </div>
                   <div className='cart-card-btns'>
-                  <button onClick={()=>{removeItemFromCart(item.id)}} className='cart-card-remove'>Remove</button>
-                  {globalUser.first_name? <a href={`/listing/${item.id}`}><button className='cart-card-contiune'>Continue to request</button></a>:<button className='cart-card-signin'>Sign in to Contine</button>}
+                  <button onClick={()=>{removeItemFromCart(item.id)}} className='cart-card-remove'><ion-icon name="trash-outline"></ion-icon></button>
+                  {globalUser.first_name? <a href={`/listing/${item.id}`}><button className='cart-card-contiune'><ion-icon name="checkmark-outline"></ion-icon></button></a>:<button className='cart-card-signin'>Sign in to Contine</button>}
                   </div>
                </div>
                )

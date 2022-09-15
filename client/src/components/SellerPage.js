@@ -21,8 +21,6 @@ const SellerPage = () => {
         }
         getUser()
     }, [])
-
-    console.log(transactions)
     return (
 <div id='seller-page'>
     <div id='seller-welcome'>
