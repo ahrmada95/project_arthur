@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
 const ConfirmTransaction =({setIsConfirming, isPurchase, listing}) => {
 
-
+    
+    //store tracking id into confirm transaction
+    useEffect ( () => {
+        localStorage.setItem('tracking_id', listing.id)
+    }, [])
 
 const navigate = useNavigate()
 
