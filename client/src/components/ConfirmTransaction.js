@@ -54,7 +54,7 @@ const createTransaction =async () => {
 return (
     <div id='buyer-confirm-fullscreen' onClick={()=> {setIsConfirming(false)}}>
         <div id='buyer-confirm-window' onClick={(e) => {e.stopPropagation()}}>
-            <h2>{listing?.title}</h2>
+            <h2>{listing?.title }</h2>
             {
                 isPurchase? <textarea id='confirm-textarea' maxlength="500" placeholder="Please describe in detail your needs for this project..."></textarea>:
                 <p>{listing?.description}</p>

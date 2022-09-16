@@ -33,7 +33,7 @@ const SellerPage = () => {
     }, [])
    
 
-   
+console.log(transactions)
 console.log(globalUser)
     return (
 <div id='seller-page'>
