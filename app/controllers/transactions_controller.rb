@@ -8,6 +8,12 @@ class TransactionsController < ApplicationController
         render json: transaction
     end
 
+    def update
+        transaction = Transaction.find_by(id: params[:id])
+        updated = transaction.update(status: params[:status])
+        render json: updated
+    end
+
     def find_by_user
 
         token = params[:user_id]

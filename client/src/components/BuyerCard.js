@@ -1,6 +1,5 @@
 import { useEffect, useContext } from "react"
-const BuyerCard = ({cardType, title, description, setIsConfirming}) => {
-
+const BuyerCard = ({cardType, title, description, setIsConfirming, setCurrentListing, id}) => {
 
 const cardToShow = () => {
     if (cardType == 'in_progress'){
@@ -25,7 +24,7 @@ const cardToShow = () => {
                 <p>{description}</p>
             </div>
             <div className="buyer-approve-card-status">
-                <button onClick={()=> {setIsConfirming(true)}}>Continue to approval <ion-icon name="arrow-forward-outline"></ion-icon></button>
+                <button onClick={()=> {setIsConfirming(true); setCurrentListing(id) }}>Continue to approval <ion-icon name="arrow-forward-outline"></ion-icon></button>
             </div>
         </div>
         )

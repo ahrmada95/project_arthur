@@ -9,6 +9,7 @@ const SellerCard = ({item, setCurrentListing, setIsConfirming}) => {
         let res = await req.json()
         console.log(res)
     }
+
 return (
 <div className='seller-req-card' >
     <div className='seller-req-card-info'>

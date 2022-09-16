@@ -24,7 +24,8 @@ const SellerPage = () => {
                 body: JSON.stringify({user_id: userId})
             })
             let res = await req.json()
-            if (!req.ok){
+            setTransactions(res)
+            if (!res.ok){
                 navigate('/')
                 setTransactions(res)
             }

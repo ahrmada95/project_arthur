@@ -1,13 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
-const ConfirmTransaction =({setIsConfirming, isPurchase, listing}) => {
-
-
+const ConfirmTransaction =({setIsConfirming, isPurchase, listing, id, setCompletedCards, completedCards }) => {
 
 const navigate = useNavigate()
-
 const createTransaction =async () => {
     let userId = Cookies.get('auth-token')
     let req = await fetch('http://localhost:3000/transactions', {
@@ -18,8 +15,7 @@ const createTransaction =async () => {
     let res = await req.json()
     if (req.ok){
         navigate('/profile')
-    }
-}
+    }}
 
 const approveTransaction = async() => {
     //set inprogress
@@ -32,6 +28,45 @@ const approveTransaction = async() => {
     console.log(res)
 }
 
+    const transactionComplited = async() => {
+
+        let req = await fetch(`http://localhost:3000/transactions/${id}`,{
+            method: "PATCH",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({status: "approved"})
+            })
+        let res = await req.json()
+    }
+
+    const transactionDenied = async() => {
+        
+        let req = await fetch(`http://localhost:3000/transactions/${id}`, {
+            method: "PATCH",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({status: "denied"})
+        })
+        let res = await req.json()
+    }
+    const handleApprove = () =>{
+        setIsConfirming(false)
+        transactionComplited()
+        let transaction = completedCards.filter(card => card.id !== id)
+        console.log("filtered" + transaction)
+        setCompletedCards(transaction)
+
+    }
+
+    const handleDeny = () =>{
+        setIsConfirming(false)
+        console.log("id "+ id)
+        transactionDenied()
+        let transaction = completedCards.filter(card => card.id !== id)
+        
+        console.log("filtered" + transaction)
+        setCompletedCards(transaction)
+    }
+
+ 
 return (
     <div id='buyer-confirm-fullscreen' onClick={()=> {setIsConfirming(false)}}>
         <div id='buyer-confirm-window' onClick={(e) => {e.stopPropagation()}}>
@@ -42,9 +77,9 @@ return (
             }
             <p>{isPurchase? 'Confirm order?':'Approve this transacion?'}</p>
             <div id='buyer-confirm-btns'>
-            <button onClick={()=>setIsConfirming(false)} id='buyer-confirm-deny-btn'>{isPurchase?'Back':'Deny'}</button>
+            <button onClick={handleDeny} id='buyer-confirm-deny-btn' >{isPurchase?'Back':'Deny'}</button>
             {isPurchase? <button id="buyer-confirm-confirm-btn" onClick={()=> {createTransaction(); setIsConfirming(false); }}>Continue</button>
-            :  <button onClick={()=> {approveTransaction()}} id="buyer-confirm-confirm-btn">Approve</button>}
+            :  <button id="buyer-confirm-confirm-btn" onClick={handleApprove}>Approve</button>}
             
           
 
