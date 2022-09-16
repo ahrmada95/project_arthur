@@ -56,7 +56,9 @@ const handleChange = (key, value) => {
 console.log(listingInfo)
 
     return (
+        
 <div id='seller-page'>
+    
     <div id='seller-welcome'>
         <h2>Welcome, {globalUser?.first_name }</h2>
         <button id='add-listing-btn' onClick={()=> {setIsAddingListing(true)}}>Add listing</button>
@@ -99,6 +101,7 @@ console.log(listingInfo)
         </div>
         </div>}
     {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase} listing={currentListing}/> }
+    
 </div>
     )
 }

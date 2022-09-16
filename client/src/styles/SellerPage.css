@@ -95,7 +95,6 @@ cursor: pointer;
     color: white;
 }
 
-
 #add-listing-btn{
     position: absolute;
     top: 20vh;
@@ -161,4 +160,3 @@ background-color: #FF5F3D;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.168);
 }
-

@@ -9,6 +9,7 @@ const ConfirmTransaction =({setIsConfirming, isPurchase, listing, id, setComplet
     }, [])
     
 const navigate = useNavigate()
+
 const createTransaction =async () => {
     let userId = Cookies.get('auth-token')
     let req = await fetch('http://localhost:3000/transactions', {
@@ -59,10 +60,10 @@ const createTransaction =async () => {
 return (
     <div id='buyer-confirm-fullscreen' onClick={()=> {setIsConfirming(false)}}>
         <div id='buyer-confirm-window' onClick={(e) => {e.stopPropagation()}}>
-            <h2>{listing?.title }</h2>
+            <h2>{"CONFIRM TRANSACTION" }</h2>
             {
-                isPurchase? <textarea id='confirm-textarea' maxLength="500" placeholder="Please describe in detail your needs for this project..."></textarea>:
-                <p>{listing?.description}</p>
+                isPurchase? <textarea id='confirm-textarea' maxlength="500" placeholder="Please describe in detail your needs for this project..."></textarea>:
+                <p>If you have any further questions or concerns, please contact with service provider or customer service. <br/> We are here to help!</p>
             }
             <p>{isPurchase? 'Confirm order?':'Approve this transacion?'}</p>
             <div id='buyer-confirm-btns'>
@@ -79,3 +80,7 @@ return (
 }
 
 export default ConfirmTransaction
+
+
+
+// go to dashBord and go 
