@@ -92,3 +92,21 @@ cursor: pointer;
     background-color: #FF5F3D;
     color: white;
 }
+    #my-profile-btn{
+        margin-top: 1%;
+        position: absolute;
+        top: 20vh;
+        right: 10vw;
+        font-size: 0.6em;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        font-weight: 1000;
+        font-size: 20px
+    }
+    #my-profile-btn:hover{
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.096);
+    transition: 300ms;
+    cursor: pointer;
+}

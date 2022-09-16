@@ -65,6 +65,7 @@ console.log(globalUser)
         </div>
     </div>
     {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase} listing={currentListing}/> }
+    <button id="my-profile-btn" onClick={()=>navigate('/dashboard')}>MY PROFILE</button>
 </div>
     )
 }
