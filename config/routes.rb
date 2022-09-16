@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   patch'/transactions/:id', to: 'transactions#edit_listing_status'
   patch'/trans_by_listing/:id', to: 'transactions#trans_by_listing'
   delete '/transactions/:id', to: 'transactions#destroy'
-  # patch '/transactions/:id', to: 'transactions#update'
+  patch '/transactions/:id', to: 'transactions#update'
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
