@@ -17,10 +17,10 @@ tags = ['exciting', 'knowledgeable', 'exotic', 'crazy', 'cheap', 'precious', 'gl
 
 
 puts "📃 Seeding data..."
-user1 = User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: 123 )
-user2 = User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: 234 )
-user3 = User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: 123 )
-user4 = User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: 234 )
+user1 = User.create!(first_name: "John" ,last_name: Faker::Name.unique.last_name ,email: "john@gmail.com", password: 123 )
+user2 = User.create!(first_name: "Ashley" ,last_name: Faker::Name.unique.last_name ,email: "ashley@gmail.com", password: 234 )
+user3 = User.create!(first_name: "Mark" ,last_name: Faker::Name.unique.last_name ,email: "mark@gmail.com", password: 123 )
+user4 = User.create!(first_name: "Jo" ,last_name: Faker::Name.unique.last_name ,email: "jo@gmail.com", password: 234 )
 seller1 = Seller.create!(user_id: user4.id, rating: 0, bio: Faker::Lorem.paragraph_by_chars)
 seller2 = Seller.create!(user_id: user3.id, rating: 0, bio: Faker::Lorem.paragraph_by_chars)
 client1 = Client.create!(user_id: user2.id)
