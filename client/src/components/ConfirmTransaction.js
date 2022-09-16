@@ -62,7 +62,7 @@ return (
         <div id='buyer-confirm-window' onClick={(e) => {e.stopPropagation()}}>
             <h2>{listing?.title }</h2>
             {
-                isPurchase? <textarea id='confirm-textarea' maxlength="500" placeholder="Please describe in detail your needs for this project..."></textarea>:
+                isPurchase? <textarea id='confirm-textarea' maxLength="500" placeholder="Please describe in detail your needs for this project..."></textarea>:
                 <p>{listing?.description}</p>
             }
             <p>{isPurchase? 'Confirm order?':'Approve this transacion?'}</p>
