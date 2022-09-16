@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         puts decoded_token[0]["data"]
         this_user = User.find_by(id: decoded_token[0]["data"])
         seller = Seller.find_by(user_id: this_user.id)
+        puts seller.id
         if this_user 
             render json: {first_name: this_user.first_name, last_name: this_user.last_name, user_name: this_user.email, seller_id: seller.id}
         else 
