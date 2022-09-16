@@ -23,9 +23,23 @@ class TransactionsController < ApplicationController
         puts this_user
         client = Client.find_by(user_id: this_user.id)
         puts client
-        in_progress_transactions = Transaction.where(client_id: client.id, status: 'in_progress')
+        in_progress_transactions = Transaction.where(client_id: client.id, status: 'in-progress')
         completed_transactions = Transaction.where(client_id: client.id, status: 'completed')
         render json:{ in_progress: in_progress_transactions.as_json(methods: [:listing]), completed: completed_transactions.as_json(methods: [:listing])}
+    end
+
+    def edit_listing_status
+        transaction = Transaction.find_by(id: params[:id])
+        transaction.update(status: params[:status])
+        render json: transaction
+    end
+
+    def trans_by_listing
+        # listing = Listing.find_by(id: params[:id])
+        transaction = Transaction.find_by(id: params[:id])
+        transaction.update(status: params[:status])
+        render json: transaction
+
     end
 
     def create 

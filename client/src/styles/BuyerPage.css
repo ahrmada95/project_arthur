@@ -18,21 +18,23 @@ color: white;
 #buyer-in-the-works{
     background-color: rgba(3, 5, 77, 0.101);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.337);
-    padding: 10px;
     border-radius: 10px;
+    backdrop-filter: blur(20px);
 }
 
 #buyer-approve{
     background-color: rgba(3, 5, 77, 0.101);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.337);
-    padding: 10px;
     border-radius: 10px;
+    backdrop-filter: blur(20px);
 }
 
 #no-projects{
-    background-color: white;
+    /* background-color: white; */
     display: flex;
     align-items: center;
+    width: 80%;
+    padding: 20px;
     gap: 50px;
 }
 

@@ -7,6 +7,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
 const BuyerPage = () => {
+    window.scrollTo(0, 0);
     const navigate = useNavigate()
     const [isConfirming, setIsConfirming] = useState(false)
     const[currentListing, setCurrentListing] = useState()
@@ -29,10 +30,9 @@ const BuyerPage = () => {
 
             let res = await req.json()
             if (req.ok){
-            setInProgreesCards(res.in_progress)
-            setCompletedCards(res.completed)
+                setInProgreesCards(res.in_progress)
+                setCompletedCards(res.completed)
             }
-
         }   
         
         getTransactions()
@@ -45,12 +45,12 @@ const BuyerPage = () => {
             <h1>Welcome, {globalUser?.first_name}</h1>
         </div>
         <div id="buyer-in-the-works">
-            {inProgressCards.length == 0 && completedCards.length == 0 &&
+            {inProgressCards?.length == 0 && completedCards?.length == 0 &&
              <div id="no-projects">
                 <img src="../no-proejcts.svg"/>
                 <h2>Looks like you don't have any orders yet</h2>
             </div>}
-           { inProgressCards.length != 0 && <h2>In progress:</h2>}
+           { inProgressCards?.length != 0 && <h2>In progress:</h2>}
             {inProgressCards&& inProgressCards.map(card => {
                 return(
                     <BuyerCard cardType={'in_progress'} title={card?.listing?.name} id={card?.listing?.id} setCurrentListing={setCurrentListing} setIsConfirming={setIsConfirming} description={card?.listing?.description} />

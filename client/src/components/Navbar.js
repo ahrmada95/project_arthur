@@ -44,12 +44,12 @@ return (
       <p>{cart.length}</p>
       </div>}
       </button>
-      {Cookies.get('auth-token') &&<form><button id='sign-out' onClick={()=> {navigate('/'); Cookies.remove('auth-token')}}>Sign out</button></form>}
+      {Cookies.get('auth-token') &&<button id='sign-out' onClick={()=> {navigate('/'); Cookies.remove('auth-token'); window.location.reload(true);}}>Sign out</button>}
       {
          isShowingCart&& 
          <div id='cart-pop-up' onClick={()=> {setIsShowingCart(false)}}>
          <div id='cart-container' onClick={(e)=> {e.stopPropagation()}}>
-         <h1>Cart</h1>
+         <h1>Cart  <ion-icon name="cart-outline"></ion-icon></h1>
          {cart.length == 0 ? <div id='empty-cart-container'><h2>oops... Looks like you have some shoping to do</h2><img id='empty-cart' src='../empty-card.svg'/><a href='/search/all'><button>Shop now</button></a></div> :
          cart.map(item => {
                return (
