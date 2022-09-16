@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 
 const ConfirmTransaction =({setIsConfirming, isPurchase, listing, id, setCompletedCards, completedCards }) => {
 
-    
+localStorage.setItem('tracking_id', 1)
     //store tracking id into confirm transaction
     useEffect ( () => {
         localStorage.setItem('tracking_id', listing.id)
