@@ -21,6 +21,7 @@ const App = () => {
   const [isLoginPop, setIsLoginPop] = useState(false)
   const [cart, setCart] = useState([])
   useEffect(()=> {
+    localStorage.setItem('tracking_id',1)
 
           setCart(JSON.parse(localStorage.getItem('cart')) || []) 
           const validSesson = async() => {

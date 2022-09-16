@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         puts decoded_token[0]["data"]
         this_user = User.find_by(id: decoded_token[0]["data"])
         seller = Seller.find_by(user_id: this_user.id)
+        puts seller.id
         if this_user 
             render json: {first_name: this_user.first_name, last_name: this_user.last_name, user_name: this_user.email, seller_id: seller.id}
         else 
@@ -53,6 +54,19 @@ class UsersController < ApplicationController
             render json: {error: "Invalid login"}, status: 418
         end
     end
+
+    def get_suggested_listings
+        suggested_listing_ids = []
+        curr_tags = Listing.find_by(id: params[:listing_id]).tags
+        Listing.all.each do |listing|
+            intersection = curr_tags & listing.tags
+            if (intersection.size != 0) #you can change this to determine how specific you want it to be
+                suggested_listing_ids.push(listing)
+            end
+        end
+        return render json: suggested_listing_ids 
+    end
+
 
     private 
         def user_params 

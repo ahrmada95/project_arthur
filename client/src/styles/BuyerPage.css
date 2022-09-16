@@ -19,7 +19,10 @@ color: white;
     background-color: rgba(3, 5, 77, 0.101);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.337);
     border-radius: 10px;
+    width: 70%;
+    padding: 20px;
     backdrop-filter: blur(20px);
+    margin-bottom: 20px;
 }
 
 #buyer-approve{
@@ -27,6 +30,7 @@ color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.337);
     border-radius: 10px;
     backdrop-filter: blur(20px);
+    padding: 20px;
 }
 
 #no-projects{
@@ -45,7 +49,7 @@ color: white;
 .buyer-card{
     display: flex;
     align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.491);
+    border: 1px solid rgba(255, 255, 255, 1);
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
@@ -218,4 +222,10 @@ margin-bottom: 4em;
     background-color: rgba(0, 0, 0, 0.096);
     transition: 300ms;
     cursor: pointer;
+    
+#add-listing-btn {
+    /* position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0; */
 }

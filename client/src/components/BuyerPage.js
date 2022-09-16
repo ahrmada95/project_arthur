@@ -41,7 +41,7 @@ const BuyerPage = () => {
     return (
     <div id='buyer-page'>
         <div id="buyer-welcome">
-            <h1>Welcome, {globalUser?.first_name}</h1>
+            <h1>Welco, {globalUser?.first_name}</h1>
         </div>
         <div id="buyer-in-the-works">
             {inProgressCards?.length == 0 && completedCards?.length == 0 &&

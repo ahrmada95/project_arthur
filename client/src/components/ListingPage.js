@@ -2,10 +2,6 @@ import '../styles/ListingPage.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route, useParams } from 'react-router-dom';
 import ConfirmTransaction from './ConfirmTransaction'
-
-
-
-
 const ListingPage = ({setCartItems}) => {
     window.scrollTo(0, 0);
     let { listingId } = useParams();
@@ -13,7 +9,6 @@ const ListingPage = ({setCartItems}) => {
     const isPurchase = true
     const [listing, setListing] = useState({})
     const [seller, setSeller] = useState({})
-
     useEffect(()=> {
         const getListingById = async() => {
             let req = await fetch(`http://localhost:3000/listings/${listingId}`)
@@ -21,7 +16,6 @@ const ListingPage = ({setCartItems}) => {
             setListing(res.listing)
             setSeller(res)
         }
-
         getListingById()
     }, [])
     const handleAddToCart =() => {
@@ -36,7 +30,6 @@ const ListingPage = ({setCartItems}) => {
         }else {
         }
     }
-
     return(
     <div id="listing-page">
         <div id='listing-top-wrapper'>
@@ -60,7 +53,6 @@ const ListingPage = ({setCartItems}) => {
         </div>
         </div>
         <div id='listing-bottom-wrapper'>
-
         <h2>About this listing:</h2>
             <p>{listing?.description}</p>
             <h2>About the creator:</h2>
@@ -70,7 +62,7 @@ const ListingPage = ({setCartItems}) => {
                 <img src={`https://avatars.dicebear.com/api/personas/${Math.floor(Math.random())}.svg`}/>
                 </div>
                 <p>{seller?.first_name} {seller?.last_name}</p>
-                <p id='listing-seller-rating'> {'⭐️'.repeat(seller?.rating)}{'★'.repeat(5 - seller?.rating)}</p>
+                <p id='listing-seller-rating'> {':star:️'.repeat(seller?.rating)}{'★'.repeat(5 - seller?.rating)}</p>
                 <p id='seller-rating-num' >{seller?.rating}</p>
               </div>
                 <p>{seller?.bio}</p>
@@ -80,5 +72,4 @@ const ListingPage = ({setCartItems}) => {
     </div>
 )
 }
-
 export default ListingPage
