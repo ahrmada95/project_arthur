@@ -52,7 +52,7 @@ const handleChange = (key, value) => {
         [key]: value
     })
 } 
-   
+   let requested
 console.log(listingInfo)
     return (
 <div id='seller-page'>
@@ -61,28 +61,31 @@ console.log(listingInfo)
         <button id='add-listing-btn' onClick={()=> {setIsAddingListing(true)}}>Add listing</button>
     </div>
     <div className='seller-container'>
-        <div className='seller-req'>
-            <h2>Requests:</h2>
-            {transactions.map(item => {
-                if (item.status == 'requested'  && item?.seller_id == globalUser?.seller_id){
+     <div className='seller-req'>
+        <h2>Requests:</h2>
+        {  requested =  transactions.map(item => {
+            if (item.status == 'requested'  && item?.seller_id == globalUser?.seller_id){
+            return (
+                <SellerCard setIsConfirming={setIsConfirming} setCurrentListing={setCurrentListing} item={{title: item?.listing?.name, description: item?.listing?.description, id: item?.id, status: item?.status}}/>
+            ) 
+            }
+ 
+            
+        }) 
+        }
+    </div>
+    <div className='seller-req'>
+        <h2>In-progress:</h2>
+        {transactions.map(item => {
+            if (item.status == 'in-progress' && item?.seller_id == globalUser?.seller_id){
+
                 return (
-                    <SellerCard setIsConfirming={setIsConfirming} setCurrentListing={setCurrentListing} item={{title: item?.listing?.name, description: item?.listing?.description, id: item?.id, status: item?.status}}/>
+                    <SellerCard setIsConfirming={setIsConfirming} item={{title: item?.listing?.name, description: item?.listing?.description, status: item?.status, id: item?.id}}/>
                 )
-                }
-            })}
-        </div>
-        <div className='seller-req'>
-            <h2>In-progress:</h2>
-            {transactions.map(item => {
-                if (item.status == 'in-progress' && item?.seller_id == globalUser?.seller_id){
+            }
+        })}
 
-                    return (
-                        <SellerCard setIsConfirming={setIsConfirming} item={{title: item?.listing?.name, description: item?.listing?.description, status: item?.status, id: item?.id}}/>
-                    )
-                }
-            })}
-
-        </div>
+    </div>
     </div>
     {isAddingListing && <div id='add-listing-popup' onClick={()=> {setIsAddingListing(false)}}>
         <div id='add-listing-container' onClick={(e)=> {e.stopPropagation()}}>

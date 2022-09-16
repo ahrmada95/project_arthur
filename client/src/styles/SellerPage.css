@@ -31,10 +31,12 @@ font-size: 3em;
     backdrop-filter: blur(20px);
     padding: 10px;
     border-radius: 10px;
+    min-width: 60%;
 }
 
 .seller-req{
     margin-bottom: 4em;
+    min-width: 60%;
 }
 
 .seller-req-card{
