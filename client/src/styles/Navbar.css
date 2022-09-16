@@ -135,6 +135,7 @@ z-index: 20;
 display: flex;
 justify-content: center;
 align-items: center;
+
 }
 
 #cart-container{
@@ -148,9 +149,15 @@ gap: 20px;
 border-radius: 10px;
 padding: 60px 10px;
 color: black;
+box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.527);
 }
 #cart-container h1 {
-    font-size: 3em;
+    font-size: 4em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0em;
+    margin-top: -0.5em;
 }
 
 .cart-card{

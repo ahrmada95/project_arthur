@@ -27,9 +27,11 @@ const BuyerPage = () => {
                 body: JSON.stringify({user_id: userId})
             })
             let res = await req.json()
-            setInProgreesCards(res.in_progress)
-            setCompletedCards(res.completed)
-            console.log(res)
+            if (req.ok){
+                setInProgreesCards(res.in_progress)
+                setCompletedCards(res.completed)
+                console.log(res)
+            }
         }   
         
         getTransactions()
@@ -43,12 +45,12 @@ const BuyerPage = () => {
             <h1>Welcome, {globalUser?.first_name}</h1>
         </div>
         <div id="buyer-in-the-works">
-            {inProgressCards.length == 0 && completedCards.length == 0 &&
+            {inProgressCards?.length == 0 && completedCards?.length == 0 &&
              <div id="no-projects">
                 <img src="../no-proejcts.svg"/>
                 <h2>Looks like you don't have any orders yet</h2>
             </div>}
-           { inProgressCards.length != 0 && <h2>In progress:</h2>}
+           { inProgressCards?.length != 0 && <h2>In progress:</h2>}
             {inProgressCards&& inProgressCards.map(card => {
                 return(
                     <BuyerCard cardType={'in_progress'} title={card?.listing?.name} description={card?.listing?.description} />
