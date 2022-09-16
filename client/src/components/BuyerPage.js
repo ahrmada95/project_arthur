@@ -14,7 +14,6 @@ const BuyerPage = () => {
     const {globalUser, setGloblUser} = useContext(UserContext)
     const [inProgressCards, setInProgreesCards] = useState([])
     const [completedCards, setCompletedCards] = useState([])
-    console.log(completedCards)
 
      useEffect(()=> {
         if (!Cookies.get('auth-token')){
@@ -40,7 +39,6 @@ const BuyerPage = () => {
         getTransactions()
     }, [])
 
-    console.log(currentListing)
     //add redirect
     return (
     <div id='buyer-page'>
