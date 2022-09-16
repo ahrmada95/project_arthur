@@ -1,1 +1,2 @@
-web: bundle exec rails server -p 3001
+web: rails server -p 3001
+web: npm start --prefix client -p 3000
