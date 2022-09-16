@@ -204,3 +204,10 @@ margin-bottom: 4em;
     transition: 300ms;
     cursor: pointer;
 }
+
+#add-listing-btn {
+    /* position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0; */
+}
