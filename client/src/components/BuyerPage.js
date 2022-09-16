@@ -44,7 +44,6 @@ const BuyerPage = () => {
     <div id='buyer-page'>
         <div id="buyer-welcome">
             <h1>Welco, {globalUser?.first_name}</h1>
-        <button id='add-listing-btn'>Add listing</button>
         </div>
         <div id="buyer-in-the-works">
             {inProgressCards?.length == 0 && completedCards?.length == 0 &&
