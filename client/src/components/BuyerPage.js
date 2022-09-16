@@ -14,7 +14,6 @@ const BuyerPage = () => {
     const {globalUser, setGloblUser} = useContext(UserContext)
     const [inProgressCards, setInProgreesCards] = useState([])
     const [completedCards, setCompletedCards] = useState([])
-
      useEffect(()=> {
         if (!Cookies.get('auth-token')){
             navigate('/')
@@ -75,7 +74,7 @@ const BuyerPage = () => {
             <NavLink to='/become-a-seller'><button>Become a seller</button></NavLink>
         </div>
        {isConfirming&& <ConfirmTransaction id={currentListing}  setIsConfirming={setIsConfirming}  completedCards={completedCards} setCompletedCards={setCompletedCards}/>}
-    
+    {globalUser?.seller_id? <button id="my-profile-btn" onClick={()=>navigate('/dashboard')}>MY PROFILE</button>: null}
     </div>
 
 )

@@ -36,7 +36,9 @@ const SellerPage = () => {
 console.log(transactions)
 console.log(globalUser)
     return (
+        
 <div id='seller-page'>
+    
     <div id='seller-welcome'>
         <h2>Welcome, {globalUser?.first_name }</h2>
     </div>
@@ -65,7 +67,7 @@ console.log(globalUser)
         </div>
     </div>
     {isConfirming&&< ConfirmTransaction setIsConfirming={setIsConfirming} isPurchase={isPurchase} listing={currentListing}/> }
-    <button id="my-profile-btn" onClick={()=>navigate('/dashboard')}>MY PROFILE</button>
+    
 </div>
     )
 }
