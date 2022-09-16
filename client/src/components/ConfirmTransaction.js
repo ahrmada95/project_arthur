@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
 const ConfirmTransaction =({setIsConfirming, isPurchase, listing, id, setCompletedCards, completedCards }) => {
-console.log(id)
 const navigate = useNavigate()
 const createTransaction =async () => {
     let userId = Cookies.get('auth-token')
@@ -40,18 +39,14 @@ const createTransaction =async () => {
         setIsConfirming(false)
         transactionComplited()
         let transaction = completedCards.filter(card => card.id !== id)
-        console.log("filtered" + transaction)
         setCompletedCards(transaction)
 
     }
 
     const handleDeny = () =>{
         setIsConfirming(false)
-        console.log("id "+ id)
         transactionDenied()
         let transaction = completedCards.filter(card => card.id !== id)
-        
-        console.log("filtered" + transaction)
         setCompletedCards(transaction)
     }
 

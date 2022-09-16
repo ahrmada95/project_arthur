@@ -13,14 +13,11 @@ const Navbar = ({setIsLoginPop, cart, setCart}) => {
 
 
    const removeItemFromCart = (id) => {
-      console.log(id, cart)
       let filteredCart = cart.filter(item => {
-         console.log(item?.id)
          return item.id!== id
       })
       setCart(filteredCart)
       localStorage.setItem('cart', JSON.stringify(filteredCart))
-      console.log(filteredCart)
    }
 
 

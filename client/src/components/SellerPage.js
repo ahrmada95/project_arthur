@@ -19,7 +19,6 @@ const SellerPage = () => {
                 body: JSON.stringify({user_id: userId})
             })
             let res = await req.json()
-            console.log(res)
             setTransactions(res)
             if (!res.ok){
                 navigate('/')
