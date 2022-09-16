@@ -74,8 +74,10 @@ const BuyerPage = () => {
             <h2>Feeling creative?</h2>
             <NavLink to='/become-a-seller'><button>Become a seller</button></NavLink>
         </div>
-       {isConfirming&& <ConfirmTransaction id={currentListing} setIsConfirming={setIsConfirming}  completedCards={completedCards} setCompletedCards={setCompletedCards}/>}
+       {isConfirming&& <ConfirmTransaction id={currentListing}  setIsConfirming={setIsConfirming}  completedCards={completedCards} setCompletedCards={setCompletedCards}/>}
+    <button id="my-profile-btn" onClick={()=>navigate('/dashboard')}>MY PROFILE</button>
     </div>
+
 )
 }
 
