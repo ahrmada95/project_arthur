@@ -26,6 +26,11 @@ font-size: 3em;
 .seller-container{
     margin-bottom: 10em;
     color: white;
+    background-color: rgba(3, 5, 77, 0.101);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.337);
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .seller-req{
@@ -38,6 +43,7 @@ font-size: 3em;
     border: 1px solid white;
     border-radius: 10px;
     padding: 20px;
+    margin-bottom: 1em;
 }
 
 .seller-req-card-info p{

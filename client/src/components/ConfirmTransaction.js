@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 const ConfirmTransaction =({setIsConfirming, isPurchase, listing}) => {
 
 
-console.log(listing)
+
 const navigate = useNavigate()
 
 const createTransaction =async () => {
@@ -21,19 +21,30 @@ const createTransaction =async () => {
     }
 }
 
+const approveTransaction = async() => {
+    //set inprogress
+    let req = await fetch(`http://localhost:3000/transactions/${listing.id}`, {
+        method: "PATCH",
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify({status: 'in-progress'})
+    })
+    let res = await req.json()
+    console.log(res)
+}
+
 return (
     <div id='buyer-confirm-fullscreen' onClick={()=> {setIsConfirming(false)}}>
         <div id='buyer-confirm-window' onClick={(e) => {e.stopPropagation()}}>
-            <h2>This is a title for the transaction</h2>
+            <h2>{listing?.title}</h2>
             {
                 isPurchase? <textarea id='confirm-textarea' maxlength="500" placeholder="Please describe in detail your needs for this project..."></textarea>:
-                <p>This is the description of the transacion that I am going to approve because I am not a garbage human being who takes advantage of people</p>
+                <p>{listing?.description}</p>
             }
             <p>{isPurchase? 'Confirm order?':'Approve this transacion?'}</p>
             <div id='buyer-confirm-btns'>
             <button onClick={()=>setIsConfirming(false)} id='buyer-confirm-deny-btn'>{isPurchase?'Back':'Deny'}</button>
             {isPurchase? <button id="buyer-confirm-confirm-btn" onClick={()=> {createTransaction(); setIsConfirming(false); }}>Continue</button>
-            :  <button id="buyer-confirm-confirm-btn">Approve</button>}
+            :  <button onClick={()=> {approveTransaction()}} id="buyer-confirm-confirm-btn">Approve</button>}
             
           
 
