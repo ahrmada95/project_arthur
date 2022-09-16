@@ -7,6 +7,7 @@ import ConfirmTransaction from './ConfirmTransaction'
 
 
 const ListingPage = ({setCartItems}) => {
+    window.scrollTo(0, 0);
     let { listingId } = useParams();
     const [isConfirming, setIsConfirming] = useState(false)
     const isPurchase = true

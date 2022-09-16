@@ -47,7 +47,7 @@ return (
       <p>{cart.length}</p>
       </div>}
       </button>
-      {Cookies.get('auth-token') &&<form><button id='sign-out' onClick={()=> {navigate('/'); Cookies.remove('auth-token')}}>Sign out</button></form>}
+      {Cookies.get('auth-token') &&<button id='sign-out' onClick={()=> {navigate('/'); Cookies.remove('auth-token'); window.location.reload(true);}}>Sign out</button>}
       {
          isShowingCart&& 
          <div id='cart-pop-up' onClick={()=> {setIsShowingCart(false)}}>

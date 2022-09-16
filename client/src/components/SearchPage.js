@@ -5,6 +5,7 @@ import '../styles/SearchPage.css'
 import ProductCard from './ProductCard'
 const SearchPage = () => {
     let {searchValue} = useParams()
+    window.scrollTo(0, 0);
     const[listings, setListings] = useState([])
         useEffect(()=> {
         const getListings =async() => {

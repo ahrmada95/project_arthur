@@ -31,10 +31,11 @@ const App = () => {
                 body: JSON.stringify({user_id: userId})
               })
               let res = await req.json()
-              setGlobalUser({first_name: res.first_name, last_name: res.last_name, email: res.email})
+              setGlobalUser({first_name: res.first_name, last_name: res.last_name, email: res.email, seller_id: res.seller_id})
           }
           validSesson()
   }, [])
+  console.log(globalUser)
   return (
     <div className="App">
       <UserContext.Provider value={value}>
