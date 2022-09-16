@@ -50,7 +50,7 @@ return (
          <div id='cart-pop-up' onClick={()=> {setIsShowingCart(false)}}>
          <div id='cart-container' onClick={(e)=> {e.stopPropagation()}}>
          <h1>Cart  <ion-icon name="cart-outline"></ion-icon></h1>
-         {cart.length == 0 ? <div id='empty-cart-container'><h2>oops... Looks like you have some shoping to do</h2><img id='empty-cart' src='../empty-card.svg'/><a href='/search/all'><button>Shop now</button></a></div> :
+         {cart.length == 0 ? <div id='empty-cart-container'><h2>oops... Looks like you have some shoping to do</h2><img id='empty-cart-img' src='../empty-card.svg' style={{maxHeight: '300px'}}/><a href='/search/all'><button>Shop now</button></a></div> :
          cart.map(item => {
                return (
                   <div className='cart-card'>

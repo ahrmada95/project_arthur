@@ -231,8 +231,8 @@ font-weight: 600;
     cursor: pointer;
 }
 
-#empty-cart{
-    height: 50%;
+#empty-cart-img{
+    height: 20%;
 }
 
 #empty-cart-container{
