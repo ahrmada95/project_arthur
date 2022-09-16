@@ -8,6 +8,12 @@ class TransactionsController < ApplicationController
         render json: transaction
     end
 
+    def update
+        transaction = Transaction.find_by(id: params[:id])
+        updated = transaction.update(status: params[:status])
+        render json: updated
+    end
+
     def find_by_user
 
         token = params[:user_id]
@@ -46,7 +52,9 @@ class TransactionsController < ApplicationController
         hmac_secret = 'my$ecretK3y'
         decoded_token = JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
         this_user = User.find_by(id: decoded_token[0]["data"])
+        puts this_user
         client = Client.find_by(user_id: this_user.id)
+        puts client
         new_transaction = Transaction.create(listing_id: params[:listing_id], seller_id: params[:seller_id], status: params[:status], client_id: client.id)
         if new_transaction.valid?
             render json: new_transaction, status: :created

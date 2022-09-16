@@ -18,8 +18,8 @@ return (
         {
             item?.status == 'requested'&&
             <div className='seller-req-card-status'>
-            <button className='seller-req-card-status-accept hover' onClick={()=> {setCurrentListing(item); setIsConfirming(true)}}>Accept</button>
-            <button className='seller-req-card-status-decline hover' onClick={()=> {setIsConfirming(true)}}>Decline</button>
+            <button className='seller-req-card-status-accept hover' >Accept</button>
+            <button className='seller-req-card-status-decline hover'>Decline</button>
             </div> 
         }
         {

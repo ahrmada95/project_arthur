@@ -22,6 +22,7 @@ puts "📃 Seeding data..."
     User.create!(first_name: Faker::Name.unique.first_name ,last_name: Faker::Name.unique.last_name ,email: Faker::Internet.email, password: Faker::Internet.password )
 end
 
+
 User.create(first_name: "Ahnaf", last_name: "Ahmad", email: "ahnaf@arthur.com", password: "password")
 
 client1 = Client.create!(user_id: User.all.sample.id)
@@ -32,9 +33,11 @@ client5 = Client.create!(user_id: User.all.sample.id)
 
 
 # what is seller raiting 
-20.times do
+10.times do
     Seller.create!(user_id: User.all.sample.id, rating: 0, bio: Faker::Lorem.paragraph_by_chars)
 end
+    
+
 
 
 Listing.create!(name: "I will make professional resume design or modern cv template", description: Faker::Lorem.paragraph_by_chars, price: Faker::Number.within(range: 1..10000) , images: '../arthur-franklin-EIuqUQddc3Q-unsplash.jpg' , active: [true, false].sample , seller_id: Seller.all.sample.id , tags: tags.sample(4) )
@@ -87,5 +90,17 @@ new_stuff = Transaction.all
 new_stuff.each do |t|
     Invoice.create!(transaction_id: t.id, paid: [true, false].sample)
 end
+
+
+user1000 = User.create( first_name: "ag" ,last_name: "ag" ,email: "ag@ag", password: "123" )
+seller1000 = Seller.create(user_id: user1000[:id], rating: 0, bio: Faker::Lorem.paragraph_by_chars)
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: Seller.all.sample.id, client_id: Client.all.sample.id, status: [ 'requested', 'completed', 'in-progress'].sample)
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: seller1000[:id], client_id: Client.all.sample.id, status: 'requested')
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: seller1000[:id], client_id: Client.all.sample.id, status: 'requested')
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: seller1000[:id], client_id: Client.all.sample.id, status: 'requested')
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: Seller.all.sample.id, client_id: Client.all.sample.id, status: [ 'requested', 'completed', 'in-progress'].sample)
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: seller1000[:id], client_id: Client.all.sample.id, status: 'completed')
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: seller1000[:id], client_id: Client.all.sample.id, status: 'completed')
+Transaction.create!(listing_id: Listing.all.sample.id, seller_id: seller1000[:id], client_id: Client.all.sample.id, status: 'in-progress')
 
 puts "✅ Done seeding"

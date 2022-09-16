@@ -30,7 +30,6 @@ const Authform = ({setIsLoginPop}) => {
         })
     }
 
-    console.log(formInput)
 return (
     <div id='auth-bg' onClick={()=> {setIsLoginPop(prev => !prev); }}>
         <div id='auth-form' onClick={(e) => {e.stopPropagation()}}> 

@@ -10,10 +10,10 @@ const BuyerPage = () => {
     window.scrollTo(0, 0);
     const navigate = useNavigate()
     const [isConfirming, setIsConfirming] = useState(false)
+    const[currentListing, setCurrentListing] = useState()
     const {globalUser, setGloblUser} = useContext(UserContext)
     const [inProgressCards, setInProgreesCards] = useState([])
     const [completedCards, setCompletedCards] = useState([])
-
 
      useEffect(()=> {
         if (!Cookies.get('auth-token')){
@@ -27,17 +27,16 @@ const BuyerPage = () => {
                 headers: {"Content-type": "application/json"},
                 body: JSON.stringify({user_id: userId})
             })
+
             let res = await req.json()
             if (req.ok){
                 setInProgreesCards(res.in_progress)
                 setCompletedCards(res.completed)
             }
-            console.log(res)
         }   
         
         getTransactions()
     }, [])
-
 
     //add redirect
     return (
@@ -54,7 +53,7 @@ const BuyerPage = () => {
            { inProgressCards?.length != 0 && <h2>In progress:</h2>}
             {inProgressCards&& inProgressCards.map(card => {
                 return(
-                    <BuyerCard cardType={'in_progress'} title={card?.listing?.name} description={card?.listing?.description} />
+                    <BuyerCard cardType={'in_progress'} title={card?.listing?.name} id={card?.listing?.id} setCurrentListing={setCurrentListing} setIsConfirming={setIsConfirming} description={card?.listing?.description} />
                 )
             })}
         </div>
@@ -63,7 +62,7 @@ const BuyerPage = () => {
             {completedCards.length != 0 && <h2>Ready for approval</h2>}
             {completedCards && completedCards.map(card => {
                 return(
-                    <BuyerCard cardType={'completed'} title={card?.listing?.name} description={card?.listing?.description} setIsConfirming={setIsConfirming} />
+                    <BuyerCard cardType={'completed'} title={card?.listing?.name} setCurrentListing={setCurrentListing} id={card?.id} description={card?.listing?.description} setIsConfirming={setIsConfirming} />
                 )
             })}
         </div>
@@ -75,7 +74,7 @@ const BuyerPage = () => {
             <h2>Feeling creative?</h2>
             <NavLink to='/become-a-seller'><button>Become a seller</button></NavLink>
         </div>
-       {isConfirming&& <ConfirmTransaction setIsConfirming={setIsConfirming} />}
+       {isConfirming&& <ConfirmTransaction id={currentListing} setIsConfirming={setIsConfirming}  completedCards={completedCards} setCompletedCards={setCompletedCards}/>}
     </div>
 )
 }

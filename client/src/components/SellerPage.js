@@ -54,6 +54,7 @@ const handleChange = (key, value) => {
 } 
    let requested
 console.log(listingInfo)
+
     return (
 <div id='seller-page'>
     <div id='seller-welcome'>
