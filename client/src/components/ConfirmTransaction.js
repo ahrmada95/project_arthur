@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom"
 import Cookies from 'js-cookie'
 
 const ConfirmTransaction =({setIsConfirming, isPurchase, listing, id, setCompletedCards, completedCards }) => {
+
+    
+    //store tracking id into confirm transaction
+    useEffect ( () => {
+        localStorage.setItem('tracking_id', listing.id)
+    }, [])
 const navigate = useNavigate()
 const createTransaction =async () => {
     let userId = Cookies.get('auth-token')
